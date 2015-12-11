@@ -8,14 +8,18 @@
 <h2>Technology</h2>
 <p></p>
 <ul>
-    <li>ASP.NET MVC5 (so not the latest ASP.NET5, MVC6 EF7 stack!)</li>
+    <li>ASP.NET MVC5 (not the latest ASP.NET5, MVC6 EF7 stack!)</li>
     <li>VS2015 (project upgraded from a VS2013 MVC app - however VS2015 works just as well using ASP.NET 4.6 template)</li>
     <li>Bootstrap theme - Yeti from <a href="http://bootswatch.com/">http://bootswatch.com/</a></li>
     <li>Source Control - <a href="https://github.com/djhmateer/RefactoringBusiness">https://github.com/djhmateer/RefactoringBusiness</a> </li>
-    <li>Continuous Integration / Build server: <a href="https://ci.appveyor.com/project/djhmateer/refactoringbusiness">https://ci.appveyor.com/project/djhmateer/refactoringbusiness</a>  </li>
+    <li>Continuous Integration / Build server: <a href="https://ci.appveyor.com/project/djhmateer/refactoringbusiness">https://ci.appveyor.com/project/djhmateer/refactoringbusiness</a> </li>
     <li>Continuous Deployment to Azure <a href="http://refactoring.azurewebsites.net/">http://refactoring.azurewebsites.net/</a> </li>
-    <li>Website availability monitoring<a href="https://uptimerobot.com">https://uptimerobot.com</a></li>
+    <li>Website availability monitoring <a href="https://uptimerobot.com">https://uptimerobot.com</a></li>
 </ul>
 
+<h3>Workflow</h3>
+<p>Am currently pushing to github master, which then calls Appveyor and Azure at the same time.  So if a build fails it will be pushed to live.  However this is very useful in 'dev' to get the site up asap.</p>
+
+<h3>Appveyor Build Status</h3>
 <p><img src="https://ci.appveyor.com/api/projects/status/tw9vblyoxv60xs9c?svg=true"/></p>
 
