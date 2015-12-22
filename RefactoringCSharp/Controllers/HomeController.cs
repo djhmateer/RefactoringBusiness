@@ -15,7 +15,7 @@ namespace RefactoringCSharp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page. Some change.";
+            ViewBag.Message = "Your application description page. Some change!";
 
             return View();
         }
