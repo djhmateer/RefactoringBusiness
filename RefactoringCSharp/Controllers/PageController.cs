@@ -10,16 +10,16 @@ namespace RefactoringCSharp.Controllers
     {
         public ActionResult ORM()
         {
-            ViewBag.ConnectionString = ConfigurationManager.ConnectionStrings["DavesJokes"].ToString();
+            //ViewBag.ConnectionString = ConfigurationManager.ConnectionStrings["DavesJokes"].ToString();
 
             // Read from a database
-            //List<Joke> listOfJokes;
-            //using (var context = new DavesJokes())
-            //{
-            //    listOfJokes = context.Jokes.Take(5).ToList();
-            //}
-            //return View(listOfJokes);
-            return View();
+            List<Joke> listOfJokes;
+            using (var context = new DavesJokes())
+            {
+                listOfJokes = context.Jokes.Take(5).ToList();
+            }
+            return View(listOfJokes);
+            //return View();
         }
     }
 }
