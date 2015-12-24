@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
+using System.Runtime.Caching;
+using System.Web.Caching;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,7 +16,15 @@ namespace RefactoringCSharp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page. Some change!";
+            // get buildVersion from Cache if available
+            if (HttpContext.Current.Cache["time"] == null)
+            {
+                System.Web.HttpContext.Current.Cache["time"] = DateTime.Now;
+            }
+
+            ViewBag.Time = ((DateTime)System.Web.HttpContext.Current.Cache["time"]).ToString();
+
+            //ViewBag.BuildVersion = fileContent;
 
             return View();
         }
