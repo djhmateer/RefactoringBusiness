@@ -27,28 +27,28 @@ namespace RefactoringCSharp
         //    MiniProfiler.Stop();
         //}
 
-        void Application_Error(Object sender, EventArgs e)
-        {
-            //#if DEBUG
-            //Console.WriteLine("Error not handled as in Debug");
-            //#else
-            //var exception = Server.GetLastError();
+        //void Application_Error(Object sender, EventArgs e)
+        //{
+        //    //#if DEBUG
+        //    //Console.WriteLine("Error not handled as in Debug");
+        //    //#else
+        //    //var exception = Server.GetLastError();
 
-            //if (exception == null)
-            //{
-            //    return;
-            //}
-            //ILog log = LogManager.GetLogger(typeof(MvcApplication));
-            //log.Error(exception.Message);
-            //log.Error(Request.RawUrl);
-            //log.Error(exception.StackTrace);
+        //    //if (exception == null)
+        //    //{
+        //    //    return;
+        //    //}
+        //    //ILog log = LogManager.GetLogger(typeof(MvcApplication));
+        //    //log.Error(exception.Message);
+        //    //log.Error(Request.RawUrl);
+        //    //log.Error(exception.StackTrace);
 
-            //// Clear the error
-            //Server.ClearError();
+        //    //// Clear the error
+        //    //Server.ClearError();
 
-            //// Redirect to a landing page
-            //Response.Redirect("/home/error");
-            ////#endif
-        }
+        //    //// Redirect to a landing page
+        //    //Response.Redirect("/home/error");
+        //    ////#endif
+        //}
     }
 }
