@@ -69,9 +69,10 @@
 <p>BuildVersion: @ViewBag.BuildVersion</p>
 <p>Time (Object/MemoryCache) Absolute after 10s: @ViewBag.TimeToDisplayOC</p>
 
-<h3>Appveyor Build Version</h3>
-@*<p>@File.GetCreationTime(ViewContext.Controller.GetType().Assembly.Location)</p>*@
-<p>@typeof(RefactoringCSharp.MvcApplication).Assembly.GetName().Version</p>
+<h3>Appveyor</h3>
+<p>Build Version: @typeof (RefactoringCSharp.MvcApplication).Assembly.GetName().Version</p>
+<p>Build info including most recent git commit<a href="https://ci.appveyor.com/project/djhmateer/refactoringbusiness">https://ci.appveyor.com/project/djhmateer/refactoringbusiness</a></p>
+
 
 
 
