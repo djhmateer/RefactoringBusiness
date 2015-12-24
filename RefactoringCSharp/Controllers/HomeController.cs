@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.Caching;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Mvc;
@@ -40,8 +41,24 @@ namespace RefactoringCSharp.Controllers
                 }
             }
             else buildVersion += " Cache Hit!";
-
             ViewBag.BuildVersion = buildVersion;
+
+            // Use the general MemoryCache (so not just for ASP.NET)
+            MemoryCache oc = MemoryCache.Default;
+            // Expire items from the oc cache
+            var policy = new CacheItemPolicy { AbsoluteExpiration = new DateTimeOffset(DateTime.Now.AddSeconds(10)) };
+            string timeToDisplayOC = (string)oc.Get("timeOC");
+            if (string.IsNullOrEmpty(timeToDisplayOC))
+            {
+                bool result = oc.Add("timeOC", DateTime.Now.ToString(), policy);
+                timeToDisplayOC = DateTime.Now.ToString();
+            }
+            else
+            {
+                timeToDisplayOC += " Cache Hit!";
+            }
+            ViewBag.TimeToDisplayOC = timeToDisplayOC;
+
             return View();
         }
 
