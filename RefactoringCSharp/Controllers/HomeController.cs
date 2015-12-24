@@ -42,20 +42,6 @@ namespace RefactoringCSharp.Controllers
             else timeToDisplaySliding = timeFromCacheSliding + " Cache Hit!";
             ViewBag.TimeToDisplaySliding = timeToDisplaySliding;
 
-
-            // get buildVersion from Cache if available
-            string buildVersion = cache["BuildVersion"] as string;
-            if (string.IsNullOrEmpty(buildVersion))
-            {
-                using (StreamReader sr = System.IO.File.OpenText(Server.MapPath("~/BuildVersion.txt")))
-                {
-                    buildVersion = sr.ReadToEnd();
-                    cache.Insert("BuildVersion", buildVersion, new CacheDependency(Server.MapPath("~/BuildVersion.txt")));
-                }
-            }
-            else buildVersion += " Cache Hit!";
-            ViewBag.BuildVersion = buildVersion;
-
             // Use the general MemoryCache (so not just for ASP.NET)
             MemoryCache oc = MemoryCache.Default;
             // Expire item from the oc cache to 10s
