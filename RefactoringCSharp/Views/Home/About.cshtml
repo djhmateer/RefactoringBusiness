@@ -69,5 +69,9 @@
 <p>BuildVersion: @ViewBag.BuildVersion</p>
 <p>Time (Object/MemoryCache) Absolute after 10s: @ViewBag.TimeToDisplayOC</p>
 
+<h3>Assembly Date</h3>
+<p>@File.GetCreationTime(ViewContext.Controller.GetType().Assembly.Location)</p>
+
+
 
 
