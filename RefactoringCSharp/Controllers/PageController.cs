@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -10,7 +9,7 @@ namespace RefactoringCSharp.Controllers
     {
         public ActionResult ORM()
         {
-            ViewBag.ConnectionString = ConfigurationManager.ConnectionStrings["DavesJokes"].ToString();
+            //ViewBag.ConnectionString = ConfigurationManager.ConnectionStrings["DavesJokes"].ToString();
 
             // Read from a database
             List<Joke> listOfJokes;
