@@ -220,6 +220,8 @@
     </Content>
     <None Include="Properties\PublishProfiles\refactoring - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\refactoring - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\refactoring2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\refactoring2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Parameters.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
