@@ -218,6 +218,8 @@
     <Content Include="DavesJokes.edmx.diagram">
       <DependentUpon>DavesJokes.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\refactoring - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\refactoring - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Parameters.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
