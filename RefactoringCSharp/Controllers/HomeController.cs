@@ -42,6 +42,7 @@ namespace RefactoringCSharp.Controllers
             else timeToDisplaySliding = timeFromCacheSliding + " Cache Hit!";
             ViewBag.TimeToDisplaySliding = timeToDisplaySliding;
 
+
             // Use the general MemoryCache (so not just for ASP.NET)
             MemoryCache oc = MemoryCache.Default;
             // Expire item from the oc cache to 10s
