@@ -30,7 +30,7 @@
 public ActionResult ORM()
 {
     // Read from a database 
-    List&lt;Joke> listOfJokes;   
+    List&lt;Joke&gt; listOfJokes;   
     using (var context = new DavesJokes())
     {
         listOfJokes = context.Jokes.Take(5).ToList();

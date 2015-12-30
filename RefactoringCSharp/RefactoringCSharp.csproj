@@ -202,6 +202,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap-yeti.css" />
+    <Content Include="Content\prettify.css" />
+    <Content Include="Content\prettify.js" />
     <Content Include="DavesJokes.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DavesJokes.edmx</DependentUpon>
