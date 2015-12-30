@@ -231,10 +231,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Properties\PublishProfiles\refactoring - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\refactoring - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\refactoring2 - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\refactoring2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Parameters.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -291,6 +287,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
