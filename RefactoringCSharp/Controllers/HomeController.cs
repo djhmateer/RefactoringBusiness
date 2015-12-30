@@ -17,6 +17,8 @@ namespace RefactoringCSharp.Controllers
 
         public ActionResult About()
         {
+            ViewBag.Version = typeof(MvcApplication).Assembly.GetName().Version;
+
             Cache cache = HttpRuntime.Cache;
 
             // time cache for testing - expires after 5s
@@ -24,7 +26,7 @@ namespace RefactoringCSharp.Controllers
             var timeFromCache = cache["time"];
             if (timeFromCache == null)
             {
-                cache.Add("time",DateTime.Now.ToString(), null, DateTime.Now.AddSeconds(5), Cache.NoSlidingExpiration, CacheItemPriority.Default, null);
+                cache.Add("time", DateTime.Now.ToString(), null, DateTime.Now.AddSeconds(5), Cache.NoSlidingExpiration, CacheItemPriority.Default, null);
                 timeToDisplay = (string)cache["time"];
             }
             else timeToDisplay = timeFromCache + " Cache Hit!";
@@ -36,7 +38,7 @@ namespace RefactoringCSharp.Controllers
             if (timeFromCacheSliding == null)
             {
                 //cache["time"] = DateTime.Now;
-                cache.Add("timeSliding", DateTime.Now.ToString(), null,Cache.NoAbsoluteExpiration, new TimeSpan(0,0,0,3), CacheItemPriority.Default, null);
+                cache.Add("timeSliding", DateTime.Now.ToString(), null, Cache.NoAbsoluteExpiration, new TimeSpan(0, 0, 0, 3), CacheItemPriority.Default, null);
                 timeToDisplaySliding = (string)cache["timeSliding"];
             }
             else timeToDisplaySliding = timeFromCacheSliding + " Cache Hit!";
