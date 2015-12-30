@@ -17,7 +17,7 @@ namespace RefactoringCSharp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Version = typeof(MvcApplication).Assembly.GetName().Version;
+            ViewBag.BuildVersion = typeof(MvcApplication).Assembly.GetName().Version;
 
             Cache cache = HttpRuntime.Cache;
 
