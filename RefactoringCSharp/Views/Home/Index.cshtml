@@ -17,13 +17,13 @@
         </p>
 
         <p>
-            <a href="/" title="Is there a 'feature' that is missing eg  easy to change the codebase - compared to other software eg how quickly can I make a change?  Will explore the common pain points eg:  Features take a long time to dev, The codebase is hard to work with because it is complex, How to quantify what a 'good' codebase looks like eg cyclomatic complexity">b - Does it need refactoring?</a>
+            <a href="/" title="Principle of least surprise, KISS, YAGNI, DRY and Rule of 3. https://lostechies.com/derickbailey/2012/10/31/abstraction-the-rule-of-three/.  Is there a 'feature' that is missing eg  easy to change the codebase - compared to other software eg how quickly can I make a change?  Will explore the common pain points eg:  Features take a long time to dev, The codebase is hard to work with because it is complex, How to quantify what a 'good' codebase looks like eg cyclomatic complexity">b - Does it need refactoring?</a>
         </p>
         <p>
             <a href="/" title="Consistency is the <strike>hobgoblin of the unimaginative</strike>??  Coding 'standards' and why consistency across a project, and a company can be a good thing!">c - Style</a>
         </p>
         <p>
-            <hr/>
+            <hr />
         </p>
 
         <p>
@@ -49,7 +49,7 @@
         </p>
 
         <p>
-            <hr/>
+            <hr />
         </p>
 
         <p>
@@ -140,7 +140,7 @@
             <a href="/" title="eg MSMQ, RabbitMQ..When do I need to start using this...smells.  Typical use cases eg Email queue.  Probably performance of existing app would be a smell">Queuing</a>
         </p>
         <p>
-            <hr/>
+            <hr />
         </p>
         <p>
             <a href="/" title="All hail the monolith. Quote from Postman website - getpostman.com.  Do I really need APIs to be building a modern software app.  Am I doing it wrong?  Good guide:  https://github.com/Yelp/service-principles   Favour a monolith for simpler systems http://martinfowler.com/bliki/MonolithFirst.html   build a simplistic version of it and see how well it works out  -> Lean Startup - learn quickly whether something is going to work or not - fail fast if not...    WCF or WebAPI. http://www.codefoster.com/webservicesforward/"> Monolith</a>
@@ -198,4 +198,88 @@
             <a href="/" title="ASP.NET MVC by Scott Allen.  Refactoring by Marc Seemann https://app.pluralsight.com/library/courses/encapsulation-solid ">Videos</a>
         </p>
     </div>
+</div>
+
+<div>
+    <h1>0 - Source Control</h1>
+
+    <p>Why use source control in refactoring?</p>
+    <ul>
+        <li>Can see what I've changed</li>
+        <li>Can revert back</li>
+    </ul>
+
+    <p>
+        Lets consider <b>Git</b> as it is easy to use locally.
+    </p>
+    <p>
+        <a href="http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/">http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/</a>
+    </p>
+
+    <pre class="prettyprint">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+namespace Mateer.Reformat
+{
+public class Program
+{
+    public static void Main(string[] args)
+    {
+      var reading = File.ReadAllLines(&#64;"..\..\quotes.csv");
+        for (int index = 0; index < reading.Length; index++)
+        {
+           var readingaline = reading[index];
+            Console.WriteLine(readingaline);
+        }
+    }
+}
+}
+}
+</pre>
+    <p>Code to refactor</p>
+    <img src="~/Images/DiffTool.jpg"/>
+    <p>Useful with Git, being able to run the VisualStudio difftool.</p>
+    <pre class="prettyprint">
+git difftool
+</pre>
+    <p>which lets you see what has been changed</p>
+</div>
+
+<div>
+    <h1>1 - Simple checks</h1>
+
+    <ul>
+        <li>Does it compile?</li>
+        <li>Does it run?</li>
+        <li>R# suggestions to get rid of unnecessary code</li>
+        <li>Dead Code - get rid of it (can get back with source control)</li>
+    </ul>
+</div>
+
+<div>
+    <h1>2 - Comments</h1>
+
+    <ul>
+        <li>Is the comment useful?</li>
+    </ul>
+</div>
+
+<div>
+    <h1>3 - Rename</h1>
+
+    <ul>
+        <li>Can you rename variables anything to make clearer?</li>
+    </ul>
+</div>
+
+<div>
+    <h1>3 - Long Methods</h1>
+
+    <ul>
+        <li>Commonly methods are long, and can be split apart to make simpler to understand</li>
+    </ul>
 </div>
