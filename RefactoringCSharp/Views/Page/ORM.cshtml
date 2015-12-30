@@ -25,23 +25,12 @@
 <p>March 2015 EF6.1.3 - 750k downloads</p>
 
 <h2>EF Reading from a live DB</h2>
-<pre>
-public ActionResult ORM()
-{
-    // Read from a database
-    List listOfJokes;
-    using (var context = new DavesJokes())
-    {
-        listOfJokes = context.Jokes.Take(5).ToList();
-    }
-    return View(listOfJokes);
-}
-</pre>
 
 <pre class="prettyprint">
 public ActionResult ORM()
 {
-    // Read from a database    
+    // Read from a database 
+    List&lt;Joke> listOfJokes;   
     using (var context = new DavesJokes())
     {
         listOfJokes = context.Jokes.Take(5).ToList();
@@ -54,7 +43,7 @@ public ActionResult ORM()
 @*ConnectionString: @ViewBag.ConnectionString*@
 @foreach (var joke in Model)
 {
-<blockquote>
+    <blockquote>
         @joke.Title<br />
         @joke.Content
     </blockquote>
