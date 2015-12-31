@@ -250,36 +250,50 @@ git difftool
 </div>
 
 <div>
-    <h1>1 - Simple checks</h1>
+    <h1>1 - Simple checks (pass A - tidying and understanding)</h1>
 
     <ul>
         <li>Does it compile?</li>
         <li>Does it run?</li>
-        <li>R# suggestions to get rid of unnecessary code</li>
+        <li>R# suggestions to get rid of unnecessary code (look for greyed out code)</li>
         <li>Dead Code - get rid of it (can get back with source control)</li>
     </ul>
 </div>
 
 <div>
-    <h1>2 - Comments</h1>
+    <h1>2 - Comments (pass B - understanding the code)</h1>
 
     <ul>
         <li>Is the comment useful?</li>
+        <li>Why am I doing something, not how (the code should be clear)</li>
     </ul>
 </div>
 
 <div>
-    <h1>3 - Rename</h1>
+    <h1>3 - Rename (pass B)</h1>
 
     <ul>
-        <li>Can you rename variables anything to make clearer?</li>
+        <li>Rename methods/variables/anything to make clearer?</li>
+        <li>WriteToLog - a good method name (Verb)</li>
+        <li>bool isGood - a good variale name (favour the positive)</li>
+        <li>consistency - eg _thing or thing</li>
     </ul>
+
 </div>
 
 <div>
-    <h1>3 - Long Methods</h1>
+    <h1>3 - Long Methods (pass C - making the code cleaner)</h1>
 
     <ul>
         <li>Commonly methods are long, and can be split apart to make simpler to understand</li>
+        <li>Extract method useful, but be careful of pass by reference</li>
+    </ul>
+</div>
+
+<div>
+    <h1>4 - Unit Test (pass C)</h1>
+
+    <ul>
+        <li>Along with 3) make short methods which are easily testable</li>
     </ul>
 </div>
