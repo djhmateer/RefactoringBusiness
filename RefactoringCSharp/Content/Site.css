@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-size: 14px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -35,4 +36,21 @@ blockquote {
   .container {
     width: 1000px
   }
+}
+
+h1, .h1 {
+    font-size: 20px;
+}
+
+h2, .h2 {
+    font-size: 18px;
+}
+
+
+p {
+    margin: 0 0 5.5px;
+}
+
+pre {
+    font-size: 13px;
 }
