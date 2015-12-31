@@ -220,7 +220,7 @@ namespace Mateer.RSharpCommentsAndDeadCode
     {
         public static void ReadFromAFileAndDisplayQuote()
         {
-            var fileTextLines = File.ReadAllLines((&#64;"..\..\quotesWithTitles.csv");
+            var fileTextLines = File.ReadAllLines(&#64;"..\..\quotesWithTitles.csv");
             foreach (string line in fileTextLines)
             {
                 string[] values = line.Split(',');
@@ -229,13 +229,13 @@ namespace Mateer.RSharpCommentsAndDeadCode
                 string quote = values[1];
                 Console.WriteLine("quote: {0}", quote);
                 // TODOx insert into database if doesn't exist already ie title not there
-                string connectionString = (&#64;"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Dev\Refactoring\Refactoring\Database1.mdf;Integrated Security=True";
+                string connectionString = &#64;"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Dev\Refactoring\Refactoring\Database1.mdf;Integrated Security=True";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Quotes (Title, Text) VALUES ((&#64;Title, (&#64;Quote)", connection))
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Quotes (Title, Text) VALUES (&#64;Title, &#64;Quote)", connection))
                     {
-                        cmd.Parameters.AddWithValue("(&#64;Title", title);
-                        cmd.Parameters.AddWithValue("(&#64;Quote", quote);
+                        cmd.Parameters.AddWithValue("&#64;Title", title);
+                        cmd.Parameters.AddWithValue("&#64;Quote", quote);
                         connection.Open();
                         cmd.ExecuteNonQuery();
                     }
