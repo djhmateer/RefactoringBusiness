@@ -29,15 +29,12 @@
 
   /*http://stackoverflow.com/questions/1667097/how-to-get-google-prettify-to-render-more-like-visual-studio*/
   .com { color: #008000 }
-.str, .tag { color: #A31515 }
-.kwd, .atv { color: #0000FF }
-.typ       { color: #2B91AF }
-/*.lit, .atn { color: #FF0000 }*/
-.pun, .pln { color: #000000 }
-.dec       { color: #800080 }
-
-
-
+  .str, .tag { color: #A31515 }
+  .kwd, .atv { color: #0000FF }
+  .typ       { color: #2B91AF }
+  /*.lit, .atn { color: #FF0000 }*/
+  .pun, .pln { color: #000000 }
+  .dec       { color: #800080 }
 
   /*.typ { color: #606 }*/  /* a type name */
   /*.lit { color: #066 }*/  /* a literal value */
@@ -64,7 +61,13 @@
 }
 
 /* Put a border around prettyprinted code snippets. */
-pre.prettyprint { padding: 2px; border: 1px solid #888 }
+pre.prettyprint {
+    padding: 2px;
+    /*border: 0.5px solid #888;*/
+    border: 0.5px solid #888;
+    padding: 10.5px 21px;
+    margin: 0 0 21px;
+}
 
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */

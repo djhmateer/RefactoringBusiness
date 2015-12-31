@@ -201,6 +201,54 @@
 </div>
 
 <div>
+    <h1>Style (Coding Style)</h1>
+    <p>Comments explaing why this app exists and it's context</p>
+    <p>When I like to use <b>var</b>not (shown)</p>
+
+    <pre class="prettyprint">
+using System;
+using System.Data.SqlClient;
+using System.IO;
+namespace Mateer.RSharpCommentsAndDeadCode
+{
+    // This Console App is run from a scheduled task nightly on the App server
+    // to import in dumped files which the Oracle team put there
+    // It should try each line independently and be resilient if the line fails to parse
+    // It should send an email on a line fail, or global exception
+    // It should log to a database table
+    public class ETL
+    {
+        public static void ReadFromAFileAndDisplayQuote()
+        {
+            var fileTextLines = File.ReadAllLines((&#64;"..\..\quotesWithTitles.csv");
+            foreach (string line in fileTextLines)
+            {
+                string[] values = line.Split(',');
+                string title = values[0];
+                Console.WriteLine("title: {0}", title);
+                string quote = values[1];
+                Console.WriteLine("quote: {0}", quote);
+                // TODOx insert into database if doesn't exist already ie title not there
+                string connectionString = (&#64;"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Dev\Refactoring\Refactoring\Database1.mdf;Integrated Security=True";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Quotes (Title, Text) VALUES ((&#64;Title, (&#64;Quote)", connection))
+                    {
+                        cmd.Parameters.AddWithValue("(&#64;Title", title);
+                        cmd.Parameters.AddWithValue("(&#64;Quote", quote);
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+    }
+}
+</pre>
+
+</div>
+
+<div>
     <h1>0 - Source Control</h1>
 
     <p>Why use source control in refactoring?</p>
@@ -241,7 +289,7 @@ public class Program
 }
 </pre>
     <p>Code to refactor</p>
-    <img src="~/Images/DiffTool.jpg"/>
+    <img src="~/Images/DiffTool.jpg" />
     <p>Useful with Git, being able to run the VisualStudio difftool.</p>
     <pre class="prettyprint">
 git difftool
@@ -296,4 +344,50 @@ git difftool
     <ul>
         <li>Along with 3) make short methods which are easily testable</li>
     </ul>
+</div>
+
+<div>
+    <h1>z - Code Review</h1>
+
+    <p>
+        From <a href="http://ayende.com/blog/3475/code-reviews-are-not-just-about-the-code">link</a>
+    </p>
+
+    <blockquote>
+        <p>The most important thing ... is the actual interaction in code reviews.</p>
+        <p>1 - Go over the code with only a general idea of what is going on, to find out if there are any areas which need special attention. Then talk to developer</p>
+        <p>2 - Go over the code each line at least once. Then chat to the developer</p>
+    </blockquote>
+
+
+    <h3>general feedback</h3>
+    <ul>
+        <li>comments unnecessary?</li>
+        <li>split into a few functions from Main()</li>
+        <li>test those new function - do they pass the examples given eg COLIN?</li>
+    </ul>
+
+    <h3>specific feedback</h3>
+    <ul>
+        <li>make algorithm simpler!</li>
+        <li>sorting... better way!</li>
+        <li>reading from a file then parsing</li>
+    </ul>
+</div>
+
+<div>
+    <h1>SQL Refactoring</h1>
+
+    <p>A good start is to alwyas keep an eye on the quries the app is actually doing eg Miniprofiler to give you page load/sql query times as you develop</p>
+    <p>
+        <a href="http://ayende.com/blog/4505/analyzing-the-mvc-music-store-data-access">http://ayende.com/blog/4505/analyzing-the-mvc-music-store-data-access</a>
+    </p>
+</div>
+
+<div>
+    <h1>Architecture</h1>
+    <p>KISS!</p>
+    <p>
+        <a href="http://ayende.com/blog/19457/review-microsoft-n-layer-app-sample-part-i">http://ayende.com/blog/19457/review-microsoft-n-layer-app-sample-part-i</a>
+    </p>
 </div>
