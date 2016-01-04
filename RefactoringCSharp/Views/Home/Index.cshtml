@@ -30,6 +30,12 @@
             <a href="/">4 - Tests</a>
         </p>
         <p>
+            <hr/>
+        </p>
+        <p>
+            <a href="/">Refactoring Example</a>
+        </p>
+        <p>
             <hr />
         </p>
         <p>
@@ -195,19 +201,20 @@
 
 
 <div>
+<p>Below is a <b >starting checklist</b> for refactoring code.</p>
     <h1>0 - Source Control</h1>
 
     <p>Source control is a <b>good thing</b>.  Let's consider <b>Git</b> as it is easy to use locally.  For refactoring I like to be able to:</p>
     <ul>
         <li>Review what has changed</li>
         <li>Be able to revert back</li>
+        <li>Git Posh (PowerShell) - installed automatically with <a href="https://desktop.github.com/">https://desktop.github.com/</a></li>
+        <li><a href="http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/" target="_blank">Git Cheatsheet (full)</a></li>
+        <li><a href="https://github.com/github/gitignore/blob/master/VisualStudio.gitignore " target="_blank">Gitignore VisualStudio</a></li>
     </ul>
 
-<p>Git Posh (PowerShell) - installed automatically with <a href="https://desktop.github.com/">https://desktop.github.com/</a></p>
-<p><a href="http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/" target="_blank">Git Cheatsheet (full)</a></p>
-<p><a href="https://github.com/github/gitignore/blob/master/VisualStudio.gitignore " target="_blank">Gitignore VisualStudio</a></p>
-
-<pre class="prettyprint">
+<p>Useful git commands</p>
+<pre class="prettyprint" title="Useful git commands">
 Copy-Item ..\Refactoring\.gitignore . # Copy in a .gitignore file from a local project
 git init  # Initialise the git repo.  eg in c:\dev\Euler22  do a git init.
 git add . # Add all files (but not ones in the .gitignore file)
@@ -227,6 +234,7 @@ git difftool  # Easy in VS2015 to right click and do show history
     <h1>1 - Simple checks</h1>
 
     <ul>
+        <li>Visual Studio auto format (Ctrl K D), remove and tidy unused usings (Alt E I O A)</li>
         <li>Does it <b>compile</b>?</li>
         <li>Does it <b >run</b>?</li>
         <li>R# to delete unnecessary code (greyed out)</li>
@@ -239,9 +247,10 @@ git difftool  # Easy in VS2015 to right click and do show history
 
     <ul>
         <li>Rename methods/variables/anything to make <b>clearer</b>?</li>
-        <li>WriteToLog - a good method name (Verb)</li>
-        <li>bool isGood - a good variale name (favour the positive)</li>
-        <li>consistency - eg _thing or thing</li>
+        <li>R# look at refactor suggestions eg for to foreach</li>
+        <li>WriteToLog - a good clear method name (Verb)</li>
+        <li>isAdministrator - a good clear variale name (favour the positive)</li>
+        <li>Consistency - eg _thing or thing</li>
     </ul>
 
 </div>
@@ -265,7 +274,25 @@ git difftool  # Easy in VS2015 to right click and do show history
 
 
 <div>
-        <h1>Coding Style</h1>
+    <h1>Refactoring Example</h1>
+    <p>In my experience with Business apps, I commonly encounter:</p>
+    <ul>
+        <li>Databases (importer / ETL apps / MVC CRUD apps)</li>
+        <li>Business Logic</li>
+        <li>Validation</li>
+        <li>Exception handling (most commonly null reference exceptions being caught)</li>
+        <li>Logging</li>
+        <li>Emailling</li>
+    </ul>
+
+    <p>Here is a good starting example for refactoring:</p>
+    <pre class="prettyprint">
+</pre>
+</div>
+
+
+<div>
+    <h1>Coding Style</h1>
         <pre class="prettyprint">
 using System;
 using System.Data.SqlClient;
