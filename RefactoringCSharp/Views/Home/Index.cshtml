@@ -12,6 +12,26 @@
     <div class="col-md-3">
         <h2>Refactoring</h2>
 
+        
+
+        <p>
+            <a href="/" title="0-x will follow a Storyline...I can safely undo any changes I make.  I can see whats changed over time.  http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/">0 - Source</a>
+        </p>
+        <p>
+            <a href="/" title="VS or R# makes it safe to rename.  Nouns vs Verbs.. suggestions for fields/properties/methods/classes">1 - Checks</a>
+        </p>
+        <p>
+            <a href="/" title="Experience.. when to use /// style comments..  When to not use comments.  When projects documentation is very useful.">2 - Rename</a>
+        </p>
+        <p>
+            <a href="/">3 - Long methods</a>
+        </p>
+        <p>
+            <a href="/">4 - Tests</a>
+        </p>
+        <p>
+            <hr />
+        </p>
         <p>
             <a href="/" title="Do you understand the system?  In an enterprise documentation is important. https://leanpub.com/techtribesje  is a good example of documentation!  If you don't know the whole system, should you be 'making it better'?  https://www.youtube.com/watch?v=oDpdaXt0HQI&feature=youtu.be  and https://lostechies.com/andrewsiemer/2015/12/09/easy-way-to-gain-high-level-understanding/ ">a - Documentation</a>
         </p>
@@ -22,35 +42,7 @@
         <p>
             <a href="/" title="Consistency is the <strike>hobgoblin of the unimaginative</strike>??  Coding 'standards' and why consistency across a project, and a company can be a good thing!">c - Style</a>
         </p>
-        <p>
-            <hr />
-        </p>
-
-        <p>
-            <a href="/" title="0-x will follow a Storyline...I can safely undo any changes I make.  I can see whats changed over time.  http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/">0 - Source Control</a>
-        </p>
-        <p>
-            <a href="/" title="VS or R# makes it safe to rename.  Nouns vs Verbs.. suggestions for fields/properties/methods/classes">1 - Rename mercilessly</a>
-        </p>
-        <p>
-            <a href="/">2 - R# suggestions</a>
-        </p>
-        <p>
-            <a href="/" title="Experience.. when to use /// style comments..  When to not use comments.  When projects documentation is very useful.">3 - Comments</a>
-        </p>
-        <p>
-            <a href="/">4 - Dead code</a>
-        </p>
-        <p>
-            <a href="/">5 - Long methods</a>
-        </p>
-        <p>
-            <a href="/">6 - Unit Test</a>
-        </p>
-
-        <p>
-            <hr />
-        </p>
+       
 
         <p>
             <a href="/" title="Why code review?  Why read others code?">z - Code Reviews</a>
@@ -200,12 +192,81 @@
     </div>
 </div>
 
-<div>
-    <h1>Style (Coding Style)</h1>
-    <p>Comments explaing why this app exists and it's context</p>
-    <p>When I like to use <b>var</b></p>
 
-    <pre class="prettyprint">
+
+<div>
+    <h1>0 - Source Control</h1>
+
+    <p>Source control is a <b>good thing</b>.  Let's consider <b>Git</b> as it is easy to use locally.  For refactoring I like to be able to:</p>
+    <ul>
+        <li>Review what has changed</li>
+        <li>Be able to revert back</li>
+    </ul>
+
+<p>Git Posh (PowerShell) - installed automatically with <a href="https://desktop.github.com/">https://desktop.github.com/</a></p>
+<p><a href="http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/" target="_blank">Git Cheatsheet (full)</a></p>
+<p><a href="https://github.com/github/gitignore/blob/master/VisualStudio.gitignore " target="_blank">Gitignore VisualStudio</a></p>
+
+<pre class="prettyprint">
+Copy-Item ..\Refactoring\.gitignore . # Copy in a .gitignore file from a local project
+git init  # Initialise the git repo.  eg in c:\dev\Euler22  do a git init.
+git add . # Add all files (but not ones in the .gitignore file)
+git add -A . # Include deletes in the 'add'
+git commit -m "initial commit"
+git commit -am "initial commit" # Add and commit in the same line
+git push
+git pull
+git mergetool # Use the VS merge tool 
+git difftool  # Easy in VS2015 to right click and do show history
+</pre>
+    
+<p>To setup difftool and mergetool in .gitconfig: <a href="http://www.programgood.net/2015/08/21/ChromeNotepadAndDifftool.aspx" _target="_blank">link</a></p>
+
+
+<div>
+    <h1>1 - Simple checks</h1>
+
+    <ul>
+        <li>Does it <b>compile</b>?</li>
+        <li>Does it <b >run</b>?</li>
+        <li>R# to delete unnecessary code (greyed out)</li>
+        <li>Delete commented out code</li>
+    </ul>
+</div>
+
+<div>
+    <h1>2 - Rename</h1>
+
+    <ul>
+        <li>Rename methods/variables/anything to make <b>clearer</b>?</li>
+        <li>WriteToLog - a good method name (Verb)</li>
+        <li>bool isGood - a good variale name (favour the positive)</li>
+        <li>consistency - eg _thing or thing</li>
+    </ul>
+
+</div>
+
+<div>
+    <h1>3 - Long Methods</h1>
+
+    <ul>
+        <li>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></li>
+        <li>Extract method useful, but be careful of pass by reference</li>
+    </ul>
+</div>
+
+<div>
+    <h1>4 - Unit Test</h1>
+
+    <ul>
+        <li>Along with above to make short methods which are more <b>easily testable</b></li>
+    </ul>
+</div>
+
+
+<div>
+        <h1>Coding Style</h1>
+        <pre class="prettyprint">
 using System;
 using System.Data.SqlClient;
 using System.IO;
@@ -249,104 +310,6 @@ namespace Mateer.RSharpCommentsAndDeadCode
 </div>
 
 <div>
-    <h1>0 - Source Control</h1>
-
-    <p>Why use source control in refactoring?</p>
-    <ul>
-        <li>Can see what I've changed</li>
-        <li>Can revert back</li>
-    </ul>
-
-    <p>
-        Lets consider <b>Git</b> as it is easy to use locally.
-    </p>
-    <p>
-        <a href="http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/">http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/</a>
-    </p>
-
-    <pre class="prettyprint">
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-namespace Mateer.Reformat
-{
-public class Program
-{
-    public static void Main(string[] args)
-    {
-      var reading = File.ReadAllLines(&#64;"..\..\quotes.csv");
-        for (int index = 0; index < reading.Length; index++)
-        {
-           var readingaline = reading[index];
-            Console.WriteLine(readingaline);
-        }
-    }
-}
-}
-}
-</pre>
-    <p>Code to refactor</p>
-    @*<img src="~/Images/DiffTool.jpg" />*@
-    <p>Useful with Git, being able to run the VisualStudio difftool.</p>
-    <pre class="prettyprint">
-git difftool
-</pre>
-    <p>which lets you see what has been changed</p>
-</div>
-
-<div>
-    <h1>1 - Simple checks (pass A - tidying and understanding)</h1>
-
-    <ul>
-        <li>Does it compile?</li>
-        <li>Does it run?</li>
-        <li>R# suggestions to get rid of unnecessary code (look for greyed out code)</li>
-        <li>Dead Code - get rid of it (can get back with source control)</li>
-    </ul>
-</div>
-
-<div>
-    <h1>2 - Comments (pass B - understanding the code)</h1>
-
-    <ul>
-        <li>Is the comment useful?</li>
-        <li>Why am I doing something, not how (the code should be clear)</li>
-    </ul>
-</div>
-
-<div>
-    <h1>3 - Rename (pass B)</h1>
-
-    <ul>
-        <li>Rename methods/variables/anything to make clearer?</li>
-        <li>WriteToLog - a good method name (Verb)</li>
-        <li>bool isGood - a good variale name (favour the positive)</li>
-        <li>consistency - eg _thing or thing</li>
-    </ul>
-
-</div>
-
-<div>
-    <h1>3 - Long Methods (pass C - making the code cleaner)</h1>
-
-    <ul>
-        <li>Commonly methods are long, and can be split apart to make simpler to understand</li>
-        <li>Extract method useful, but be careful of pass by reference</li>
-    </ul>
-</div>
-
-<div>
-    <h1>4 - Unit Test (pass C)</h1>
-
-    <ul>
-        <li>Along with 3) make short methods which are easily testable</li>
-    </ul>
-</div>
-
-<div>
     <h1>z - Code Review</h1>
 
     <p>
@@ -386,7 +349,7 @@ git difftool
 
 <div>
     <h1>Architecture</h1>
-    <p>KISS!</p>
+    <p>KISS</p>
     <p>
         <a href="http://ayende.com/blog/19457/review-microsoft-n-layer-app-sample-part-i">http://ayende.com/blog/19457/review-microsoft-n-layer-app-sample-part-i</a>
     </p>
