@@ -283,17 +283,11 @@ git difftool  # Easy in VS2015 to right click and do show history
         <li>Exception handling (most commonly null reference exceptions being caught)</li>
         <li>Logging</li>
         <li>Emailling</li>
+        <li>No Testing</li>
     </ul>
 
-    <p>Here is a good starting example for refactoring:</p>
+    <p>Here is a <b>finished example*</b> (not yet) of refactoring.  Over many years I've found it hard to find good examples of what I consider to be good code.  Of course, you may not (and hopefully wont) agree with all of this.  There is <b>always a better way</b>.</p>
     <pre class="prettyprint">
-</pre>
-</div>
-
-
-<div>
-    <h1>Coding Style</h1>
-        <pre class="prettyprint">
 using System;
 using System.Data.SqlClient;
 using System.IO;
@@ -308,22 +302,21 @@ namespace Mateer.RSharpCommentsAndDeadCode
     {
         public static void ReadFromAFileAndDisplayQuote()
         {
-            var fileTextLines = File.ReadAllLines(&#64;"..\..\quotesWithTitles.csv");
+            var fileTextLines = File.ReadAllLines(@@"..\..\quotesWithTitles.csv");
             foreach (string line in fileTextLines)
             {
-                string[] values = line.Split(',');
-                string title = values[0];
+                string[] titleAndQuote = line.Split(',');
+                string title = titleAndQuote[0];
                 Console.WriteLine("title: {0}", title);
-                string quote = values[1];
+                string quote = titleAndQuote[1];
                 Console.WriteLine("quote: {0}", quote);
-                // TODOx insert into database if doesn't exist already ie title not there
-                string connectionString = &#64;"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Dev\Refactoring\Refactoring\Database1.mdf;Integrated Security=True";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                var connectionString = @@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Dev\Refactoring\PresentationRefactoring\Database1.mdf;Integrated Security=True";
+                using (var connection = new SqlConnection(connectionString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Quotes (Title, Text) VALUES (&#64;Title, &#64;Quote)", connection))
+                    using (var cmd = new SqlCommand("INSERT INTO Quotes (Title, Text) VALUES (@@Title, @@Quote)", connection))
                     {
-                        cmd.Parameters.AddWithValue("&#64;Title", title);
-                        cmd.Parameters.AddWithValue("&#64;Quote", quote);
+                        cmd.Parameters.AddWithValue("@@Title", title);
+                        cmd.Parameters.AddWithValue("@@Quote", quote);
                         connection.Open();
                         cmd.ExecuteNonQuery();
                     }
@@ -333,7 +326,6 @@ namespace Mateer.RSharpCommentsAndDeadCode
     }
 }
 </pre>
-
 </div>
 
 <div>
