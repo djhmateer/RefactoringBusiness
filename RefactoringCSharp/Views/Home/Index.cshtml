@@ -12,8 +12,6 @@
     <div class="col-md-3">
         <h2>Refactoring</h2>
 
-        
-
         <p>
             <a href="/" title="0-x will follow a Storyline...I can safely undo any changes I make.  I can see whats changed over time.  http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/">0 - Source</a>
         </p>
@@ -30,7 +28,7 @@
             <a href="/">4 - Tests</a>
         </p>
         <p>
-            <hr/>
+            <hr />
         </p>
         <p>
             <a href="/">Refactoring Example</a>
@@ -48,7 +46,7 @@
         <p>
             <a href="/" title="Consistency is the <strike>hobgoblin of the unimaginative</strike>??  Coding 'standards' and why consistency across a project, and a company can be a good thing!">c - Style</a>
         </p>
-       
+
 
         <p>
             <a href="/" title="Why code review?  Why read others code?">z - Code Reviews</a>
@@ -208,7 +206,7 @@
     </blockquote>
 
 
-<p>Below is a <b >starting checklist</b> for refactoring, towards <b>good</b> testable code.</p>
+    <p>Below is a <b>starting checklist</b> for refactoring, towards <b>good</b> testable code.</p>
     <h1>0 - Source Control</h1>
 
     <p>Source control is a <b>good thing</b>.  Let's consider <b>Git</b> as it is easy to use locally.  For refactoring I like to be able to:</p>
@@ -220,7 +218,7 @@
         <li><a href="https://github.com/github/gitignore/blob/master/VisualStudio.gitignore " target="_blank">Gitignore VisualStudio</a></li>
     </ul>
 
-<p>Useful git commands</p>
+    <p>Useful git commands</p>
 <pre class="prettyprint" title="Useful git commands">
 Copy-Item ..\Refactoring\.gitignore . # Copy in a .gitignore file from a local project
 git init  # Initialise the git repo.  eg in c:\dev\Euler22  do a git init.
@@ -233,68 +231,68 @@ git pull
 git mergetool # Use the VS merge tool 
 git difftool  # Easy in VS2015 to right click and do show history
 </pre>
-    
-<p>To setup difftool and mergetool in .gitconfig: <a href="http://www.programgood.net/2015/08/21/ChromeNotepadAndDifftool.aspx" _target="_blank">link</a></p>
+
+    <p>To setup difftool and mergetool in .gitconfig: <a href="http://www.programgood.net/2015/08/21/ChromeNotepadAndDifftool.aspx" _target="_blank">link</a></p>
 
 
-<div>
-    <h1>1 - Simple checks</h1>
+    <div>
+        <h1>1 - Simple checks</h1>
 
-    <ul>
-        <li>Visual Studio auto format (Ctrl K D), remove and tidy unused usings (Alt E I O A)</li>
-        <li>Does it <b>compile</b>?</li>
-        <li>Does it <b >run</b>?</li>
-        <li>R# to delete unnecessary code (greyed out)</li>
-        <li>Delete commented out code</li>
-    </ul>
-</div>
+        <ul>
+            <li>Visual Studio auto format (Ctrl K D), remove and tidy unused usings (Alt E I O A)</li>
+            <li>Does it <b>compile</b>?</li>
+            <li>Does it <b>run</b>?</li>
+            <li>R# to delete unnecessary code (greyed out)</li>
+            <li>Delete commented out code</li>
+        </ul>
+    </div>
 
-<div>
-    <h1>2 - Rename</h1>
+    <div>
+        <h1>2 - Rename</h1>
 
-    <ul>
-        <li>Rename methods/variables/anything to make <b>clearer</b>?</li>
-        <li>R# look at refactor suggestions eg for to foreach</li>
-        <li>WriteToLog - a good clear method name (Verb)</li>
-        <li>isAdministrator - a good clear variale name (favour the positive)</li>
-        <li>Consistency - eg _thing or thing</li>
-    </ul>
+        <ul>
+            <li>Rename methods/variables/anything to make <b>clearer</b>?</li>
+            <li>R# look at refactor suggestions eg for to foreach</li>
+            <li>WriteToLog - a good clear method name (Verb)</li>
+            <li>isAdministrator - a good clear variale name (favour the positive)</li>
+            <li>Consistency - eg _thing or thing</li>
+        </ul>
 
-</div>
+    </div>
 
-<div>
-    <h1>3 - Long Methods</h1>
+    <div>
+        <h1>3 - Long Methods</h1>
 
-    <ul>
-        <li>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></li>
-        <li>Extract method useful, but be careful of pass by reference</li>
-    </ul>
-</div>
+        <ul>
+            <li>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></li>
+            <li>Extract method useful, but be careful of pass by reference</li>
+        </ul>
+    </div>
 
-<div>
-    <h1>4 - Unit Test</h1>
+    <div>
+        <h1>4 - Unit Test</h1>
 
-    <ul>
-        <li>Along with above to make short methods which are more <b>easily testable</b></li>
-    </ul>
-</div>
+        <ul>
+            <li>Along with above to make short methods which are more <b>easily testable</b></li>
+        </ul>
+    </div>
 
 
-<div>
-    <h1>Refactoring Example</h1>
-    <p>In my experience with Business apps, I commonly encounter:</p>
-    <ul>
-        <li>Databases (importer / ETL apps / MVC CRUD apps)</li>
-        <li>Business Logic</li>
-        <li>Validation</li>
-        <li>Exception handling (most commonly null reference exceptions being caught)</li>
-        <li>Logging</li>
-        <li>Emailling</li>
-        <li>No Testing</li>
-    </ul>
+    <div>
+        <h1>Refactoring Example</h1>
+        <p>In my experience with Business apps, I commonly encounter:</p>
+        <ul>
+            <li>Databases (importer / ETL apps / MVC CRUD apps)</li>
+            <li>Business Logic</li>
+            <li>Validation</li>
+            <li>Exception handling (most commonly null reference exceptions being caught)</li>
+            <li>Logging</li>
+            <li>Emailling</li>
+            <li>No Testing</li>
+        </ul>
 
-    <p>Here is a <b>finished example*</b> (not yet) of refactoring.  Over many years I've found it hard to find good examples of what I consider to be good code.  Of course, you may not (and hopefully wont) agree with all of this.  There is <b>always a better way</b>.</p>
-    <pre class="prettyprint">
+        <p>Here is a <b>finished example*</b> (not yet) of refactoring. Over many years I've found it hard to find examples of what I consider to be good code (although according to Feathers, <b>good code has to be under test</b>).  You may not agree with this.  There is <b>always a better way</b>.</p>
+        <pre class="prettyprint">
 using System;
 using System.Data.SqlClient;
 using System.IO;
@@ -333,50 +331,101 @@ namespace Mateer.RSharpCommentsAndDeadCode
     }
 }
 </pre>
-</div>
+    </div>
 
-<div>
-    <h1>z - Code Review</h1>
+    <div>
+        <h1>a - Documentation</h1>
+        <p>
+            Do you have a simple document which:
+        </p>
+        <ul>
+            <li>1 - Gives an introduction to the whole project</li>
+            <li>2 - Context - Includes a diagram explaining the whole system</li>
+            <li>3 - Functional requirements - what does the system do in English using DSL</li>
+            <li>4 - Quality (non Functional requirements) - eg performance, scalability, security, browser compatibility, localisation, I18n</li>
+            <li>5 - Constraints - eg budget</li>
+            <li>6 - Design principles - eg package by component vs package by layer?, Testing (unit and integration)</li>
+            <li>7 - Software Architecture - more detailed diagram showing containers eg Web app, DB, Filesystem, NoSQL, Scheduled task app, external systems</li>
+            <li>8 - Infrastructure Architecture - eg where is live server, and credentials to get there</li>
+            <li>9 - Deployment - github, TeamCity to deploy file.</li>
+            <li>10 - Operation and Support - how to check if services are running, and how to restart. How to monitor eg pingdom/uptimerobot. Backups video Dropbox.</li>
+        </ul>
+        <p>
+            Above taken from <a href="https://leanpub.com/techtribesje" target="_blank">https://leanpub.com/techtribesje</a>
+        </p>
+        <p>
+            <a href="https://www.youtube.com/watch?v=oDpdaXt0HQI&feature=youtu.be" target="_blank">https://www.youtube.com/watch?v=oDpdaXt0HQI&feature=youtu.be</a>
+        </p>
+        <p><a href="https://lostechies.com/andrewsiemer/2015/12/09/easy-way-to-gain-high-level-understanding/" target="_blank">https://lostechies.com/andrewsiemer/2015/12/09/easy-way-to-gain-high-level-understanding/</a>
+        </p>
+    </div>
 
-    <p>
-        From <a href="http://ayende.com/blog/3475/code-reviews-are-not-just-about-the-code">link</a>
-    </p>
+    <div>
+        <h1>b - Does it need Refactoring?</h1>
+        <blockquote>
+            Any programmer worth his or her salt should already be refactoring aggressively
+            <div class="small">Jeff Atwood - co-founder of StackOverflow</div>
+        </blockquote>
 
-    <blockquote>
-        <p>The most important thing ... is the actual interaction in code reviews.</p>
-        <p>1 - Go over the code with only a general idea of what is going on, to find out if there are any areas which need special attention. Then talk to developer</p>
-        <p>2 - Go over the code each line at least once. Then chat to the developer</p>
-    </blockquote>
+        <p>From <a href="http://blog.codinghorror.com/code-smells/">http://blog.codinghorror.com/code-smells/</a> are there any <b>smells</b> in your current code?  If yes, refactor!</p>
 
 
-    <h3>general feedback</h3>
-    <ul>
-        <li>comments unnecessary?</li>
-        <li>split into a few functions from Main()</li>
-        <li>test those new function - do they pass the examples given eg COLIN?</li>
-    </ul>
+        <p>
+            Principle of least surprise, KISS, YAGNI, DRY and Rule of 3. https://lostechies.com/derickbailey/2012/10/31/abstraction-the-rule-of-three/.  Is there a 'feature' that is missing eg  easy to change the codebase - compared to other software eg how quickly can I make a change?  Will explore the common pain points eg:  Features take a long time to dev, The codebase is hard to work with because it is complex, How to quantify what a 'good' codebase looks like eg cyclomatic complexity
+        </p>
+    </div>
 
-    <h3>specific feedback</h3>
-    <ul>
-        <li>make algorithm simpler!</li>
-        <li>sorting... better way!</li>
-        <li>reading from a file then parsing</li>
-    </ul>
-</div>
+    <div>
+        <h1>z - Code Reviews</h1>
 
-<div>
-    <h1>SQL Refactoring</h1>
+        <p>Goals of a Code Review</p>
 
-    <p>A good start is to alwyas keep an eye on the quries the app is actually doing eg Miniprofiler to give you page load/sql query times as you develop</p>
-    <p>
-        <a href="http://ayende.com/blog/4505/analyzing-the-mvc-music-store-data-access">http://ayende.com/blog/4505/analyzing-the-mvc-music-store-data-access</a>
-    </p>
-</div>
+        <ul>
+            <li>Spread the knowledge in the team</li>
+            <li>Make the code 'better'</li>
+            <li>Make programmers better by learning off each other</li>
+        </ul>
 
-<div>
-    <h1>Architecture</h1>
-    <p>KISS</p>
-    <p>
-        <a href="http://ayende.com/blog/19457/review-microsoft-n-layer-app-sample-part-i">http://ayende.com/blog/19457/review-microsoft-n-layer-app-sample-part-i</a>
-    </p>
-</div>
+        <p>
+            From <a href="http://ayende.com/blog/3475/code-reviews-are-not-just-about-the-code">link</a>
+        </p>
+
+        <blockquote>
+            <p>The most important thing ... is the actual interaction in code reviews.</p>
+            <p>1 - Go over the code with only a general idea of what is going on, to find out if there are any areas which need special attention. Then talk to developer</p>
+            <p>2 - Go over the code each line at least once. Then chat to the developer</p>
+        </blockquote>
+
+
+        <h3>general feedback</h3>
+        <ul>
+            <li>comments unnecessary?</li>
+            <li>split into a few functions from Main()</li>
+            <li>test those new function - do they pass the examples given eg COLIN?</li>
+        </ul>
+
+        <h3>specific feedback</h3>
+        <ul>
+            <li>make algorithm simpler!</li>
+            <li>sorting... better way!</li>
+            <li>reading from a file then parsing</li>
+        </ul>
+    </div>
+
+    <p><hr /></p>
+    <div>
+        <h1>SQL Refactoring</h1>
+
+        <p>A good start is to alwyas keep an eye on the quries the app is actually doing eg Miniprofiler to give you page load/sql query times as you develop</p>
+        <p>
+            <a href="http://ayende.com/blog/4505/analyzing-the-mvc-music-store-data-access">http://ayende.com/blog/4505/analyzing-the-mvc-music-store-data-access</a>
+        </p>
+    </div>
+
+    <div>
+        <h1>Architecture</h1>
+        <p>KISS</p>
+        <p>
+            <a href="http://ayende.com/blog/19457/review-microsoft-n-layer-app-sample-part-i">http://ayende.com/blog/19457/review-microsoft-n-layer-app-sample-part-i</a>
+        </p>
+    </div>
