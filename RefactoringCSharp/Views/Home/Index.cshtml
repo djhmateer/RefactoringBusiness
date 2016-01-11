@@ -231,6 +231,7 @@ git commit -m "initial commit"
 git commit -am "initial commit" # Add and commit in the same line
 git push
 git pull
+git rm directory\file  # Deletes the file from local filesystem and git (bit still in history)
 git mergetool # Use the VS merge tool 
 git difftool  # Easy in VS2015 to right click and do show history
 </pre>
@@ -283,15 +284,20 @@ git difftool  # Easy in VS2015 to right click and do show history
 
     <div>
         <h1>5 - Pragmatism</h1>
-        <p>A lot of developers like <b>shiny</b> things!  Some actively disklike anything that is new.  There is a healthy middle ground.  As I'm in the former camp, I usually ask myself how much can you take out so the code is: </p>
+        <p></p>
+        <p>A lot of developers like <b>shiny</b> things!  Some actively disklike anything new.  There is a healthy middle ground.  As I'm in the former camp, I usually ask myself how much can you take out so the code is: </p>
         <ul>
+            <li>Testable</li>
+            <li>Easily understandable</li>
             <li>Simplest</li>
             <li>Performant (if that is needed)</li>
         </ul>
-        <p>eg do you really need xyz Pattern? Latest thinking on blog article abc... Is an IoC container really necessary, or would Pure DI be easier for the next programmer to understand.  ie you are programming for the next person to understand easily.</p>
+        <p>eg do you really need xyz Pattern? Latest thinking on blog article abc... Is an IoC container really necessary, or would Pure DI be easier for the next programmer to understand. ie you are programming for the next person to understand easily.</p>
+
+        <p>Remember you are a <b>REAL</b> developer (IMO) if you are <b>pragmatic</b></p>
     </div>
 
-
+    <hr/>
 <div>
         <h1>Refactoring Example</h1>
         <p>In my experience with Business apps, I commonly encounter:</p>
