@@ -253,6 +253,7 @@ git checkout Master
             <li>Does it <b>run</b>?</li>
             <li>R# to delete unnecessary code (greyed out)</li>
             <li>Delete commented out code</li>
+            <li>Delete comments if possible</li>
         </ul>
     </div>
 
@@ -260,10 +261,12 @@ git checkout Master
         <h1>2 - Rename</h1>
 
         <ul>
-            <li>Rename methods/variables/anything to make <b>clearer</b>?</li>
+            <li>Rename classes/methods/variables to make <b>clearer</b></li>
+            <li>Favour short variable names for small scope</li>
+            <li>Favour as little code as possible</li>
             <li>R# look at refactor suggestions eg for to foreach</li>
             <li>WriteToLog - a good clear method name (Verb)</li>
-            <li>isAdministrator - a good clear variale name (favour the positive)</li>
+            <li>isAdministrator - a good clear variable name (favour the positive)</li>
             <li>Consistency - eg _thing or thing</li>
         </ul>
 
@@ -271,10 +274,12 @@ git checkout Master
 
     <div>
         <h1>3 - Long Methods</h1>
-
         <ul>
             <li>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></li>
-            <li>Extract method useful, but be careful of pass by reference</li>
+            <li>20 line max methods, Rule of Thumb</li>
+            <li>Minimize Parameters</li>
+            <li>Avoid flag argumnets eg Render(bool useColour), could be RenderWithColour() and RenderWithoutColour()</li>
+            <li>Favour methods which are <b>Commands</b> (ie do something and return void), or <b>Queries</b> (no side effects, return something) - CQS</li>
         </ul>
     </div>
 
