@@ -37,7 +37,7 @@
     <p>Useful git commands</p>
 <pre class="prettyprint" title="Useful git commands">
 Copy-Item ..\Refactoring\.gitignore . # Copy in a .gitignore file from a local project
-Copy-Item ..\Refactoring\d.ps1 . # Shortcut to load solution from GitShell type .\d
+Copy-Item ..\Refactoring\d.ps1 # Shortcut to load solution from GitShell type .\d
 git init  # Initialise the git repo.  eg in c:\dev\Euler22  do a git init.
 git add . # Add all files (but not ones in the .gitignore file)
 git add -A . # Include deletes in the 'add'
@@ -45,7 +45,7 @@ git commit -m "initial commit"
 git commit -am "initial commit" # Add and commit in the same line
 git push
 git pull
-git rm directory\file  # Deletes the file from local filesystem and git (bit still in history)
+git rm directory\file  # Deletes the file from local filesystem and git (but still in history)
 git rm -r packages # Recursively deletes the packages folder
 git mergetool # Use the VS merge tool 
 git difftool  # Easy in VS2015 to right click and do show history
@@ -58,7 +58,6 @@ git checkout Master
     <p>
         To setup difftool and mergetool in .gitconfig: <a href="http://www.programgood.net/2015/08/21/ChromeNotepadAndDifftool.aspx" _target="_blank">link</a>
     </p>
-
 
     <div>
         <h1>1 - Simple checks</h1>
