@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "Summary";
+}
+
+<h2>Summary</h2>
+<p>This website is a <b>work in progress</b>.  This is the current outline.  The left hand Refactoring column is the <a href="/">home</a> page</p>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Refactoring</h2>
+
+        <p>
+            <a href="/" title="0-x will follow a Storyline...I can safely undo any changes I make.  I can see whats changed over time.  http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/">0 - Source</a>
+        </p>
+        <p>
+            <a href="/" title="VS or R# makes it safe to rename.  Nouns vs Verbs.. suggestions for fields/properties/methods/classes">1 - Checks</a>
+        </p>
+        <p>
+            <a href="/" title="Experience.. when to use /// style comments..  When to not use comments.  When projects documentation is very useful.">2 - Rename</a>
+        </p>
+        <p>
+            <a href="/">3 - Long methods</a>
+        </p>
+        <p>
+            <a href="/">4 - Tests</a>
+        </p>
+        <p>
+            <a href="/">5 - Pragmatism</a>
+        </p>
+        <p>
+            <hr />
+        </p>
+        <p>
+            <a href="/">Refactoring Example</a>
+        </p>
+        <p>
+            <hr />
+        </p>
+        <p>
+            <a href="/" title="Do you understand the system?  In an enterprise documentation is important. https://leanpub.com/techtribesje  is a good example of documentation!  If you don't know the whole system, should you be 'making it better'?  https://www.youtube.com/watch?v=oDpdaXt0HQI&feature=youtu.be  and https://lostechies.com/andrewsiemer/2015/12/09/easy-way-to-gain-high-level-understanding/ ">a - Documentation</a>
+        </p>
+
+        <p>
+            <a href="/" title="Principle of least surprise, KISS, YAGNI, DRY and Rule of 3. https://lostechies.com/derickbailey/2012/10/31/abstraction-the-rule-of-three/.  Is there a 'feature' that is missing eg  easy to change the codebase - compared to other software eg how quickly can I make a change?  Will explore the common pain points eg:  Features take a long time to dev, The codebase is hard to work with because it is complex, How to quantify what a 'good' codebase looks like eg cyclomatic complexity">b - Does it need refactoring?</a>
+        </p>
+        <p>
+            <a href="/" title="Consistency is the <strike>hobgoblin of the unimaginative</strike>??  Coding 'standards' and why consistency across a project, and a company can be a good thing!">c - Style</a>
+        </p>
+
+
+        <p>
+            <a href="/" title="Why code review?  Why read others code?">z - Code Reviews</a>
+        </p>
+    </div>
+    <div class="col-md-3">
+        <!-- Showing examples of doing it right! -->
+        <h2>Bits</h2>
+        <p>
+            <a href="/" title="A great dev environment eg OneNote for sharing information.  GitShell.  DiffTool.  .\d to fire up project - how to open VS command prompt.  git push.  Very fast machine.  3 monitors.  Keyboard shortcuts.  JP Boodhoo.  Launchy to get stuff going fast.  Video to demo a good environment?  Automated!!!">Dev</a>
+        </p>
+        <p>
+            <a href="/" title="Handling exceptions is great if done well - from the composition root downwards">Exceptions</a>
+        </p>
+        <p>
+            <a href="/" title="Logging is great if done well - can easily debug what is happening in dev, test and prod.">Log</a>
+        </p>
+        <p>
+            <a href="/" title="Unit / Integration / Site">Testing</a>
+        </p>
+        <p>
+            <a href="/">SQL Refactoring</a>
+        </p>
+        <p>
+            <a href="/" title="eg Miniprofiler to give you page load/sql query times as you develop">MiniProfiler</a>
+        </p>
+        <p>
+            <a href="/" title="From marketing (Management love it when the app goes fast), Users (expect it), Developers can get more work done if the app runs fast.  Caching eg http://meta.stackexchange.com/questions/69164/does-stack-exchange-use-caching-and-if-so-how. See about page for most simple cache examples.  Then consider quickest wins for caching in business apps eg processing of data?  lookup tables?   IIS front end caching - simple. ">Speed/Caching</a>
+        </p>
+        <p>
+            <a href="/" Title="All business users love reporting.  Can you ditch it to SSRS?  Easily export to Excel?  Do the reports look great?  Dashboards people love.">Reporting</a>
+        </p>
+
+    </div>
+    <div class="col-md-3">
+        <!-- Examples of proper code showing all these concepts -->
+        <h2>Arch</h2>
+        <p>
+            <a href="/" title="Branching strategy, Pull Requests?, Release tagging">Source Control</a>
+        </p>
+        <p>
+            <a href="/" title="Working fast with VS and ASP.NET . Get rid of those annoying 5s+ load time for asp.net to work">Debugging</a>
+        </p>
+        <p>
+            <a href="/Page/ORM" title="EF Dapper etc vs ADO.NET and SP's  Where is EF useful?  RAD.  Simple CRUD apps.  What are the patterns which make it good to use?  Is it good for the 80% where you just want to CRUD up simple entities?  Use Julie Lerman's nice helpers.  Roll your own too!">ORMS</a>
+        </p>
+        <p>
+            <a href="/" title="Pattern for DB access">Repository</a>
+        </p>
+        <p>
+            <a href="/" title="Favour this!">Composition</a>
+        </p>
+        <p>
+            <a href="/" title="Pure DI/Poor mans..composition root.. vs containers">Dependency Injection</a>
+        </p>
+        <p>
+            <a href="/" title="When to use?">Ajax / SPA</a>
+        </p>
+
+        <p>
+            <a href="/" title="Pattern for Logging and Caching">Decorator </a>
+        </p>
+
+
+        <p>
+            <a href="/">DB Source</a>
+        </p>
+        <p>
+            <a href="/" title="And usability.  Managers, managers, managers, and users all love to see beauty.  They will unfairly judge your application based on looks.">Aesthetics</a>
+        </p>
+        <p>
+            <a href="/" title="Important (but not why you may think). I find people are overjoyed when their expectations are surpassed with application responsiveness.  This includes users, fellow developers and managers.  Even if speed is not in the spec, it is.  People can go irrationally nuts if something takes">Speed</a>
+        </p>
+
+        <p>
+            <a href="/">SOLID</a>
+        </p>
+        <p>
+            <a href="/" title="And CQRS">CQS</a>
+        </p>
+
+        <p>
+            <a href="/">Maybe</a>
+        </p>
+
+        <p>
+            <a href="/" title="eg MSMQ, RabbitMQ..When do I need to start using this...smells.  Typical use cases eg Email queue.  Probably performance of existing app would be a smell">Queuing</a>
+        </p>
+        <p>
+            <hr />
+        </p>
+        <p>
+            <a href="/" title="All hail the monolith. Quote from Postman website - getpostman.com.  Do I really need APIs to be building a modern software app.  Am I doing it wrong?  Good guide:  https://github.com/Yelp/service-principles   Favour a monolith for simpler systems http://martinfowler.com/bliki/MonolithFirst.html   build a simplistic version of it and see how well it works out  -> Lean Startup - learn quickly whether something is going to work or not - fail fast if not...    WCF or WebAPI. http://www.codefoster.com/webservicesforward/"> Monolith</a>
+        </p>
+        <p>
+            <a href="/">Microservices</a>
+        </p>
+
+    </div>
+    <div class="col-md-3">
+        <h2>Deploy</h2>
+        <p>
+            <a href="/" title="Dev/Test/UAT/Prod..Automated and fast. Robocopy to Octopus...make rollback easy.  How to deploy in a large enterprise which has a very manual procedure which takes weeks. eg build number, git id, and build date eg https://techtribes.je/summary">Automated</a>
+        </p>
+        <p>
+            <a href="/" title="and Continuous deployment">Continuous Integration</a>
+        </p>
+        <p>
+            <a href="/" title="eg Stash / Kibana, stackoverflow monitoring">Monitoring</a>
+        </p>
+        <p>
+            <a href="/" title="from Scheduled Task to backup db and copy to backup location to...">Backups</a>
+        </p>
+
+    </div>
+
+    <div class="col-md-3">
+        <h2 title="Templates for projects that are considered by others examples of 'doing it right'.  I've found it very hard to find 'good' examples of full blown apps.  Who writes well factored code open source?  http://c2.com/cgi/wiki?PleaseShowMeAlargeWellFactoredProgram">Examples</h2>
+        <p>
+            <a href="/" title="Sometimes this is the answer in an enterprise which have very junior developers which change often from different cultures.">MVC5 CRUD</a>
+        </p>
+        <p>
+            <a href="/">Console App Importer</a>
+        </p>
+        <p>
+            <a href="/">MVC5 Ajax</a>
+        </p>
+        <p>
+            <a href="/">MVC5 SPA</a>
+        </p>
+        <p>
+            <a href="/">Webforms</a>
+        </p>
+    </div>
+
+    <div class="col-md-3">
+        <h2 title="Standing on the shoulders of giants">Resources</h2>
+        <p>
+            <a href="/" title="Refactoring Legacy Code - Michael Feathers, Growing Object Oriented Software guided by tests">Books</a>
+        </p>
+        <p>
+            <a href="/" title="Jeff Atwood - coding smells.  Joel spolsky 12 things.  Learn a language in 10 years.  Marc Seemann">Articles</a>
+        </p>
+        <p>
+            <a href="/" title="ASP.NET MVC by Scott Allen.  Refactoring by Marc Seemann https://app.pluralsight.com/library/courses/encapsulation-solid ">Videos</a>
+        </p>
+    </div>
+</div>
