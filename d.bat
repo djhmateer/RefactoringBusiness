@@ -1,1 +1,0 @@
-devenv .\RefactoringCSharp.sln
