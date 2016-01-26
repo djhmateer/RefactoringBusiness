@@ -46,7 +46,8 @@ git checkout -b FeatureBranchName # Branch and checkout
 git branch # Show branches
 git merge Master # Do this whilst on feature branch
 git checkout Master
-git reset [commit]  # undoes all commits after [commit], preserving changes locally
+git reset bc2d7  # Undoes all commits after bc2d7 (first 5 chars of hash), preserving changes locally
+git reset --hard bc2d7 # Undoes all commits after bc2d7, discarding local changes
 </pre>
 
     <p>
