@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Runtime.Caching;
 using System.Web;
 using System.Web.Caching;
@@ -19,7 +18,7 @@ namespace RefactoringCSharp.Controllers
         {
             ViewBag.BuildVersion = typeof(MvcApplication).Assembly.GetName().Version;
 
-            Cache cache = HttpRuntime.Cache;
+            var cache = HttpRuntime.Cache;
 
             // time cache for testing - expires after 5s
             string timeToDisplay;
