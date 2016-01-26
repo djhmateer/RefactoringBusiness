@@ -47,6 +47,7 @@ git rm directory\file  # Deletes the file from local filesystem and git (but sti
 git rm -r packages # Recursively deletes the packages folder
 git mergetool # Use the VS merge tool 
 git difftool  # Easy in VS2015 to right click and do show history
+git diff --cached # What is in staging compared to last commit
 git checkout -b FeatureBranchName # Branch and checkout
 git branch # Show branches
 git merge Master # Do this whilst on feature branch
@@ -55,8 +56,10 @@ git reset bc2d7  # Undoes all commits after bc2d7 (first 5 chars of hash), prese
 git reset --hard bc2d7 # Undoes all commits after bc2d7, discarding local changes
 git log # Show commits
 git lg # Show one liners (see link above for alias)
+git checkout -- . # Discard all changes in working directory, leaving any new files intact
 git checkout da69cce # Puts head back to that commit!  Note - no longer on a branch, so need to checkout master below:
 git checkout master # Goes back
+git mv .\Eulor17_AG\ .\Euler17 # Move a directory - smarter than rename in explorer
 </pre>
 
     <div>
@@ -161,6 +164,19 @@ Ctrl R Ctrl M  # RS Extract Method
         <h2>Euler1</h2>
         <p>
             From <a href="https://projecteuler.net/problem=1">https://projecteuler.net/problem=1</a>
+        </p>
+        <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
+        <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+
+        <pre class="prettyprint">
+// code here to demo a compiling but non working version
+</pre>
+        
+        
+        
+        <h2>Euler17</h2>
+        <p>
+            From <a href="https://projecteuler.net/problem=17">https://projecteuler.net/problem=17</a>
         </p>
         <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
         <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
