@@ -25,9 +25,10 @@
         <li>Git Posh (PowerShell) - installed automatically with <a href="https://desktop.github.com/">https://desktop.github.com/</a></li>
         <li><a href="http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/" target="_blank">Git Cheatsheet (full)</a></li>
         <li><a href="https://github.com/github/gitignore/blob/master/VisualStudio.gitignore " target="_blank">Gitignore VisualStudio</a></li>
+        <li><a href="http://stackoverflow.com/questions/1838873/visualizing-branch-topology-in-git/34467298#34467298">Git lg alias</a></li>
     </ul>
 
-    <p>Useful git commandsx</p>
+    <p>Git commands</p>
 <pre class="prettyprint" title="Useful git commands">
 Copy-Item ..\Refactoring\.gitignore . # Copy in a .gitignore file from a local project
 Copy-Item ..\Refactoring\d.ps1 # Shortcut to load solution from GitShell type .\d
@@ -48,6 +49,8 @@ git merge Master # Do this whilst on feature branch
 git checkout Master
 git reset bc2d7  # Undoes all commits after bc2d7 (first 5 chars of hash), preserving changes locally
 git reset --hard bc2d7 # Undoes all commits after bc2d7, discarding local changes
+git log # Show commits
+git lg # Show one liners (see link above for alias)
 </pre>
 
     <p>
