@@ -172,8 +172,7 @@ Ctrl R Ctrl M  # RS Extract Method
         <pre class="prettyprint">
 // code here to demo a compiling but non working version
 </pre>
-
-
+        <a href="/pages/Euler1">Link to full article</a>
 
         <h2>Euler17</h2>
         <p>
@@ -185,170 +184,18 @@ Ctrl R Ctrl M  # RS Extract Method
         <pre class="prettyprint">
 // code here to demo a compiling but non working version
 </pre>
+        <a href="/pages/Euler17">Link to full article</a>
 
-        <p>
-            Here is a <b>finished example*</b> (not yet) of refactoring. Over many years I've found it hard to find examples of what I consider to be good code (although according to Feathers, <b>good code has to be under test</b>). You may not agree with this. There is <b>always a better way</b>.
-        </p>
+        <h2>CRUD with ADO</h2>
+        <p>Customer and Address.  1 Customer can have many delivery addresses eg Home, Work, School</p>
+        <p>This is a very simple example of</p>
+        <ul>
+            <li>Create Read Update Delete (CRUD)</li>
+            <li>Customers</li>
+            <li>Addresses</li>
+        </ul>
         <pre class="prettyprint">
-using System;
-using System.Data.SqlClient;
-using System.IO;
-namespace Mateer.RSharpCommentsAndDeadCode
-{
-    // This Console App is run from a scheduled task nightly on the App server
-    // to import in dumped files which the Oracle team put there
-    // It should try each line independently and be resilient if the line fails to parse
-    // It should send an email on a line fail, or global exception
-    // It should log to a database table
-    public class ETL
-    {
-        public static void ReadFromAFileAndDisplayQuote()
-        {
-            var fileTextLines = File.ReadAllLines(@@"..\..\quotesWithTitles.csv");
-            foreach (string line in fileTextLines)
-            {
-                string[] titleAndQuote = line.Split(',');
-                string title = titleAndQuote[0];
-                Console.WriteLine("title: {0}", title);
-                string quote = titleAndQuote[1];
-                Console.WriteLine("quote: {0}", quote);
-                var connectionString = @@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Dev\Refactoring\PresentationRefactoring\Database1.mdf;Integrated Security=True";
-                using (var connection = new SqlConnection(connectionString))
-                {
-                    using (var cmd = new SqlCommand("INSERT INTO Quotes (Title, Text) VALUES (@@Title, @@Quote)", connection))
-                    {
-                        cmd.Parameters.AddWithValue("@@Title", title);
-                        cmd.Parameters.AddWithValue("@@Quote", quote);
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-            }
-        }
-    }
-}
+// starting code 
 </pre>
-    </div>
-
-    <div>
-        <h1>a - Documentation</h1>
-        <p>
-            Do you have a simple document which:
-        </p>
-        <ul>
-            <li>1 - Gives an introduction to the whole project</li>
-            <li>2 - Context - Includes a <b>context diagram</b> explaining the whole system</li>
-            <li>3 - Functional requirements - what does the system do in English using DSL</li>
-            <li>4 - Quality (non Functional requirements) - eg performance, scalability, security, browser compatibility, localisation, I18n</li>
-            <li>5 - Constraints - eg budget</li>
-            <li>6 - Design principles - eg package by component vs package by layer?, Testing (unit and integration)</li>
-            <li>7 - Software Architecture - more detailed diagram showing containers eg Web app, DB, Filesystem, NoSQL, Scheduled task app, external systems</li>
-            <li>8 - Infrastructure Architecture - eg where is live server, and credentials to get there</li>
-            <li>9 - Deployment - github, TeamCity to deploy file.</li>
-            <li>10 - Operation and Support - how to check if services are running, and how to restart. How to monitor eg pingdom/uptimerobot. Backups video Dropbox.</li>
-        </ul>
-        <p>
-            Above taken from <a href="https://leanpub.com/techtribesje" target="_blank">https://leanpub.com/techtribesje</a> which is available to read online for free.
-        </p>
-        <p>
-            <a href="https://www.youtube.com/watch?v=oDpdaXt0HQI&feature=youtu.be" target="_blank">https://www.youtube.com/watch?v=oDpdaXt0HQI&feature=youtu.be</a>
-        </p>
-        <p>
-            <a href="https://lostechies.com/andrewsiemer/2015/12/09/easy-way-to-gain-high-level-understanding/" target="_blank">https://lostechies.com/andrewsiemer/2015/12/09/easy-way-to-gain-high-level-understanding/</a>
-        </p>
-    </div>
-
-    <div>
-        <h1>b - Does it need Refactoring?</h1>
-        <blockquote>
-            Any programmer worth his or her salt should already be refactoring aggressively
-            <div class="small">Jeff Atwood - co-founder of StackOverflow</div>
-        </blockquote>
-
-        <p>
-            From <a href="http://blog.codinghorror.com/code-smells/">http://blog.codinghorror.com/code-smells/</a> are there any <b>smells</b> in your current code? If yes, refactor!
-        </p>
-
-
-        <p>
-            Principle of least surprise, KISS, YAGNI, DRY and Rule of 3. https://lostechies.com/derickbailey/2012/10/31/abstraction-the-rule-of-three/. Is there a 'feature' that is missing eg easy to change the codebase - compared to other software eg how quickly can I make a change? Will explore the common pain points eg: Features take a long time to dev, The codebase is hard to work with because it is complex, How to quantify what a 'good' codebase looks like eg cyclomatic complexity
-        </p>
-    </div>
-
-    <div>
-        <h1>z - Code Reviews</h1>
-
-        <p>Goals of a Code Review</p>
-
-        <ul>
-            <li>Spread the knowledge in the team</li>
-            <li>Make the code 'better'</li>
-            <li>Make programmers better by learning off each other</li>
-        </ul>
-
-        <p>
-            From <a href="http://ayende.com/blog/3475/code-reviews-are-not-just-about-the-code">link</a>
-        </p>
-
-        <blockquote>
-            <p>The most important thing ... is the actual interaction in code reviews.</p>
-            <p>1 - Go over the code with only a general idea of what is going on, to find out if there are any areas which need special attention. Then talk to developer</p>
-            <p>2 - Go over the code each line at least once. Then chat to the developer</p>
-        </blockquote>
-
-
-        <h3>general feedback</h3>
-        <ul>
-            <li>comments unnecessary?</li>
-            <li>split into a few functions from Main()</li>
-            <li>test those new function - do they pass the examples given eg COLIN?</li>
-        </ul>
-
-        <h3>specific feedback</h3>
-        <ul>
-            <li>make algorithm simpler!</li>
-            <li>sorting... better way!</li>
-            <li>reading from a file then parsing</li>
-        </ul>
-    </div>
-
-    <p>
-        <hr />
-    </p>
-
-    <div>
-        <h1>Code Smells</h1>
-        <p>Perhaps it is easier to look at code, and consider if it <b>smells</b>?</p>
-        <ul>
-            <li>Long method</li>
-            <li>Too many parameters </li>
-            <li>Complexity</li>
-            <li>Duplication</li>
-        </ul>
-        <p><a href="http://blog.codinghorror.com/code-smells/">http://blog.codinghorror.com/code-smells/</a></p>
-    </div>
-
-    <p>
-        <hr />
-    </p>
-
-
-
-
-    <div>
-        <h1>SQL Refactoring</h1>
-
-        <p>A good start is to alwyas keep an eye on the quries the app is actually doing eg Miniprofiler to give you page load/sql query times as you develop</p>
-        <p>
-            <a href="http://ayende.com/blog/4505/analyzing-the-mvc-music-store-data-access">http://ayende.com/blog/4505/analyzing-the-mvc-music-store-data-access</a>
-        </p>
-    </div>
-
-    <div>
-        <h1>Architecture</h1>
-        <p>KISS</p>
-        <p>
-            <a href="http://ayende.com/blog/19457/review-microsoft-n-layer-app-sample-part-i">http://ayende.com/blog/19457/review-microsoft-n-layer-app-sample-part-i</a>
-        </p>
-    </div>
+        <a href="/pages/CRUD_using_ADO">Link to full article</a>
 </div>
