@@ -31,7 +31,7 @@
         </li>
     </ul>
 
-    <p>Git commands</p>
+    <p>Useful Git commands</p>
 <pre class="prettyprint" title="Useful git commands">
 Copy-Item ..\Refactoring\.gitignore . # Copy in a .gitignore file from a local project
 Copy-Item ..\Refactoring\d.ps1 # Shortcut to load solution from GitShell type .\d
@@ -80,7 +80,7 @@ Ctrl . # VS Quick Actions (like RS Alt Enter)
     </div>
 
     <div>
-        <h1>2 - Rename</h1>
+        <h1>2 - Rename and Auto Refactors</h1>
 
         <ul>
             <li>Rename classes/methods/variables to make <b>clearer</b></li>
@@ -90,6 +90,8 @@ Ctrl . # VS Quick Actions (like RS Alt Enter)
             <li>WriteToLog - a good clear method name (Verb)</li>
             <li>isAdministrator - a good clear variable name (favour the positive)</li>
             <li>Consistency - eg _thing or thing</li>
+            <li>Move variable to inner scope - RS</li>
+            <li>Inline temp variables - RS (careful!)</li>
         </ul>
 
         <pre class="prettyprint" title="Useful VS and R# commands">
@@ -185,6 +187,21 @@ Ctrl R Ctrl M  # RS Extract Method
 // code here to demo a compiling but non working version
 </pre>
         <a href="/pages/Euler17">Link to full article</a>
+
+
+        <h2>Fractals</h2>
+        <p>
+            From <a href="http://23programs.blogspot.co.uk/2012/03/c-mandelbrot-set-fractal.html">here</a> a refactoring of this code
+        </p>
+        <p>A windows forms app for display Fractal images</p>
+
+        <pre class="prettyprint">
+// code
+</pre>
+        <a href="/pages/Euler17">Link to full article</a>
+
+
+
 
         <h2>CRUD with ADO</h2>
         <p>Customer and Address.  1 Customer can have many delivery addresses eg Home, Work, School</p>
