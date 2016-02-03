@@ -69,7 +69,7 @@ git mv .\Eulor17_AG\ .\Euler17 # Move a directory - smarter than rename in explo
             <li>Does it <b>run</b> producing the <b>correct</b> result?</li>
             <li>Delete commented out code</li>
             <li>Delete comments if possible</li>
-            <li>Delete unnecessary code (greyed out in R#)</li>
+            <li>Delete unnecessary code (greyed out in RS)</li>
         </ul>
 
 <pre class="prettyprint" title="Useful VS and R# commands">
@@ -81,17 +81,21 @@ Ctrl . # VS Quick Actions (like RS Alt Enter)
 
     <div>
         <h1>2 - Rename and Auto Refactors</h1>
-
         <ul>
             <li>Rename classes/methods/variables to make <b>clearer</b></li>
-            <li>Favour short variable names for small scope</li>
+            <ul>
+                <li>WriteToLog - good clear method name (Verb)</li>
+                <li>isAdministrator - good clear variable name (favour the positive)</li>
+                <li>_thing or thing - consistency important</li>
+            </ul>
+            <li>Favour short variable names for local scope</li>
             <li>Favour as little code as possible</li>
-            <li>R# look at refactor suggestions eg for to foreach</li>
-            <li>WriteToLog - a good clear method name (Verb)</li>
-            <li>isAdministrator - a good clear variable name (favour the positive)</li>
-            <li>Consistency - eg _thing or thing</li>
-            <li>Move variable to inner scope - RS</li>
-            <li>Inline temp variables - RS (careful!)</li>
+            <li>RS refactor suggestions to make more <b>readable</b> </li>
+            <ul>
+                <li>for to foreach</li>
+                <li>Move variable to inner scope - RS</li>
+                <li>Inline temp variables - RS (careful!)</li>
+            </ul>
         </ul>
 
         <pre class="prettyprint" title="Useful VS and R# commands">
