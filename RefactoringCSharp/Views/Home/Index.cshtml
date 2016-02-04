@@ -1,37 +1,38 @@
 ﻿@{  ViewBag.Title = "Refactoring C#";}
 
 <div>
-    <blockquote>
-        <p>
-            <b>Code without tests is bad code</b>. It doesn't matter how well written it is; it doesn't matter how pretty or object-oriented or well-encapsulated it is. With tests, we can change the behaviour of our code quickly and verifiably. Without them, we really don't know if our code is getting better or worse.
-        </p>
-        <p class="small">Michael Feathers - Working with Legacy Code</p>
-    </blockquote>
-
+<p>@ViewBag.Message</p>
+<blockquote>
     <p>
-        Below is a <b>starting checklist</b> for refactoring, towards <b>good</b> testable code.
+        <b>Code without tests is bad code</b>. It doesn't matter how well written it is; it doesn't matter how pretty or object-oriented or well-encapsulated it is. With tests, we can change the behaviour of our code quickly and verifiably. Without them, we really don't know if our code is getting better or worse.
     </p>
-    <h1>0 - Source Control</h1>
+    <p class="small">Michael Feathers - Working with Legacy Code</p>
+</blockquote>
 
-    <p>
-        Source control is a <b>good thing</b>. Let's consider <b>Git</b> as it is easy to use locally. For refactoring I like to be able to:
-    </p>
-    <ul>
-        <li>Review what has changed</li>
-        <li>Be able to revert back</li>
-        <li>Git Posh (PowerShell) - installed automatically with <a href="https://desktop.github.com/">https://desktop.github.com/</a></li>
-        <li>Set font in PowerShell to Lucida Console 12, Set clone path to c:\dev in GitHub Desktop (gears options top right) so gitshell opens there by default</li>
-        <li><a href="https://github.com/github/gitignore/blob/master/VisualStudio.gitignore " target="_blank">Gitignore VisualStudio</a></li>
-        <li><a href="https://github.com/djhmateer/RefactoringBusiness/blob/master/d.ps1">.\d trick to open solution from GitShell</a></li>
-        <li>
-            <a href="http://stackoverflow.com/questions/1838873/visualizing-branch-topology-in-git/34467298#34467298">Git lg alias</a>,
-            <a href="http://www.programgood.net/2015/08/21/ChromeNotepadAndDifftool.aspx" _target="_blank">Difftool and Mergetool setup</a>,
-            <a href="http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/" target="_blank">Git Cheatsheet (full)</a>,
-            <a href="http://haacked.com/archive/2014/07/28/github-flow-aliases/">Phil Haack tips</a>
-        </li>
-    </ul>
+<p>
+    Below is a <b>starting checklist</b> for refactoring, towards <b>good</b> testable code.
+</p>
+<h1>0 - Source Control</h1>
 
-    <p>Useful Git commands</p>
+<p>
+    Source control is a <b>good thing</b>. Let's consider <b>Git</b> as it is easy to use locally. For refactoring I like to be able to:
+</p>
+<ul>
+    <li>Review what has changed</li>
+    <li>Be able to revert back</li>
+    <li>Git Posh (PowerShell) - installed automatically with <a href="https://desktop.github.com/">https://desktop.github.com/</a></li>
+    <li>Set font in PowerShell to Lucida Console 12, Set clone path to c:\dev in GitHub Desktop (gears options top right) so gitshell opens there by default</li>
+    <li><a href="https://github.com/github/gitignore/blob/master/VisualStudio.gitignore " target="_blank">Gitignore VisualStudio</a></li>
+    <li><a href="https://github.com/djhmateer/RefactoringBusiness/blob/master/d.ps1">.\d trick to open solution from GitShell</a></li>
+    <li>
+        <a href="http://stackoverflow.com/questions/1838873/visualizing-branch-topology-in-git/34467298#34467298">Git lg alias</a>,
+        <a href="http://www.programgood.net/2015/08/21/ChromeNotepadAndDifftool.aspx" _target="_blank">Difftool and Mergetool setup</a>,
+        <a href="http://www.barbarianmeetscoding.com/wiki/git-cheatsheet/" target="_blank">Git Cheatsheet (full)</a>,
+        <a href="http://haacked.com/archive/2014/07/28/github-flow-aliases/">Phil Haack tips</a>
+    </li>
+</ul>
+
+<p>Useful Git commands</p>
 <pre class="prettyprint" title="Useful git commands">
 Copy-Item ..\Refactoring\.gitignore . # Copy in a .gitignore file from a local project
 Copy-Item ..\Refactoring\d.ps1 # Shortcut to load solution from GitShell type .\d
@@ -61,165 +62,165 @@ git checkout master # Goes back
 git mv .\Eulor17_AG\ .\Euler17 # Move a directory - smarter than rename in explorer
 </pre>
 
-    <div>
-        <h1>1 - Simple checks</h1>
+<div>
+    <h1>1 - Simple checks</h1>
 
-        <ul>
-            <li>Does it <b>compile</b>?</li>
-            <li>Does it <b>run</b> producing the <b>correct</b> result?</li>
-            <li>Delete commented out code</li>
-            <li>Delete unnecessary code (greyed out in RS)</li>
-            <li>Delete unnecessary comments</li>
-        </ul>
+    <ul>
+        <li>Does it <b>compile</b>?</li>
+        <li>Does it <b>run</b> producing the <b>correct</b> result?</li>
+        <li>Delete commented out code</li>
+        <li>Delete unnecessary code (greyed out in RS)</li>
+        <li>Delete unnecessary comments</li>
+    </ul>
 
-<pre class="prettyprint" title="Useful VS and R# commands">
+    <pre class="prettyprint" title="Useful VS and R# commands">
 Alt E I O A  #  VS Remove and tidy unused usings         
 Ctrl K D  # VS Auto Format
 Ctrl . # VS Quick Actions (like RS Alt Enter)
 </pre>
-    </div>
+</div>
 
-    <div>
-        <h1>2 - Rename and Auto Refactors</h1>
+<div>
+    <h1>2 - Rename and Auto Refactors</h1>
+    <ul>
+        <li>Rename classes/methods/variables to make <b>clearer</b></li>
         <ul>
-            <li>Rename classes/methods/variables to make <b>clearer</b></li>
-            <ul>
-                <li>WriteToLog - good clear method name (Verb)</li>
-                <li>isAdministrator - good clear variable name (favour the positive)</li>
-                <li>_thing or thing - consistency important</li>
-            </ul>
-            <li>Favour short variable names for local scope</li>
-            <li>Favour as little code as possible</li>
-            <li>RS refactor suggestions to make more <b>readable</b> </li>
-            <ul>
-                <li>for to foreach</li>
-                <li>Move variable to inner scope - RS</li>
-                <li>Inline temp variables - RS (careful!)</li>
-            </ul>
+            <li>WriteToLog - good clear method name (Verb)</li>
+            <li>isAdministrator - good clear variable name (favour the positive)</li>
+            <li>_thing or thing - consistency important</li>
         </ul>
+        <li>Favour short variable names for local scope</li>
+        <li>Favour as little code as possible</li>
+        <li>RS refactor suggestions to make more <b>readable</b> </li>
+        <ul>
+            <li>for to foreach</li>
+            <li>Move variable to inner scope - RS</li>
+            <li>Inline temp variables - RS (careful!)</li>
+        </ul>
+    </ul>
 
-        <pre class="prettyprint" title="Useful VS and R# commands">
+    <pre class="prettyprint" title="Useful VS and R# commands">
 Ctrl R R  # VS Rename
 </pre>
-    </div>
+</div>
 
-    <div>
-        <h1>3 - Long Methods</h1>
-        <ul>
-            <li>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></li>
-            <li>20 line max methods, Rule of Thumb</li>
-            <li>Minimize Parameters</li>
-            <li>Avoid flag argumnets eg Render(bool useColour), could be RenderWithColour() and RenderWithoutColour()</li>
-            <li>Favour methods which are <b>Commands</b> (ie do something and return void), or <b>Queries</b> (no side effects, return something) - CQS</li>
-        </ul>
-        <pre class="prettyprint" title="Useful VS and RS commands">
+<div>
+    <h1>3 - Long Methods</h1>
+    <ul>
+        <li>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></li>
+        <li>20 line max methods, Rule of Thumb</li>
+        <li>Minimize Parameters</li>
+        <li>Avoid flag argumnets eg Render(bool useColour), could be RenderWithColour() and RenderWithoutColour()</li>
+        <li>Favour methods which are <b>Commands</b> (ie do something and return void), or <b>Queries</b> (no side effects, return something) - CQS</li>
+    </ul>
+    <pre class="prettyprint" title="Useful VS and RS commands">
 Ctrl Shift R  # RS Refactor this
 Ctrl R Ctrl M  # RS Extract Method
 </pre>
-    </div>
+</div>
 
-    <div>
-        <h1>4 - Unit Test</h1>
-        <p>Red, Green, Refactor towards:</p>
-        <ul>
-            <li>Short methods which are more <b>easily testable</b> and <b>simpler</b></li>
-            <li>Performance - measure using timings.. Can algorithm be smarter eg less iterations in loops</li>
-        </ul>
-    </div>
+<div>
+    <h1>4 - Unit Test</h1>
+    <p>Red, Green, Refactor towards:</p>
+    <ul>
+        <li>Short methods which are more <b>easily testable</b> and <b>simpler</b></li>
+        <li>Performance - measure using timings.. Can algorithm be smarter eg less iterations in loops</li>
+    </ul>
+</div>
 
-    <div>
-        <h1>5 - Pragmatism</h1>
-        <p></p>
-        <p>
-            A lot of developers like <b>shiny</b> things! Some actively disklike anything new. There is a healthy middle ground. As I'm in the former camp, I usually ask myself how much can you take out so the code is:
-        </p>
-        <ul>
-            <li>Testable</li>
-            <li>Easily understandable</li>
-            <li>Simplest</li>
-            <li>Performant (if that is needed)</li>
-        </ul>
-        <p>eg do you really need xyz Pattern? Latest thinking on blog article abc... Is an IoC container really necessary, or would Pure DI be easier for the next programmer to understand. ie you are programming for the next person to understand easily.</p>
+<div>
+    <h1>5 - Pragmatism</h1>
+    <p></p>
+    <p>
+        A lot of developers like <b>shiny</b> things! Some actively disklike anything new. There is a healthy middle ground. As I'm in the former camp, I usually ask myself how much can you take out so the code is:
+    </p>
+    <ul>
+        <li>Testable</li>
+        <li>Easily understandable</li>
+        <li>Simplest</li>
+        <li>Performant (if that is needed)</li>
+    </ul>
+    <p>eg do you really need xyz Pattern? Latest thinking on blog article abc... Is an IoC container really necessary, or would Pure DI be easier for the next programmer to understand. ie you are programming for the next person to understand easily.</p>
 
-        <p>
-            Remember you are a <b>REAL</b> developer (IMO) if you are <b>pragmatic</b>
-        </p>
-    </div>
+    <p>
+        Remember you are a <b>REAL</b> developer (IMO) if you are <b>pragmatic</b>
+    </p>
+</div>
 
-    <hr />
-    <div>
-        <h1>Examples!</h1>
-        <p>
-            Using the 0-5 steps above, I will walk through examples giving the path of getting to <b>good</b> code
-        </p>
-        <ul>
-            <li>Euler1</li>
-            <li>Euler17</li>
-            <li>Fractals</li>
-            <li>Console importer ETL</li>
-            <li>World bank webservice game</li>
-            <li>Databases (importer / ETL apps / MVC CRUD apps)</li>
-            <li>CRUD with ADO</li>
-            <li>CRUD with Dapper</li>
-            <li>CRUD with Sprocs</li>
-            <li>Validation</li>
-            <li>Paging, Sorting and Filtering, and Profiling</li>
-            <li>Exception handling, CQS, DI and IoC and Service Locator, Logging, Emailling</li>
-            <li>Selenium style testing</li>
-            <li>Refactoring a large application (OSS?)</li>
-        </ul>
+<hr/>
+<div>
+    <h1>Examples!</h1>
+    <p>
+        Using the 0-5 steps above, I will walk through examples giving the path of getting to <b>good</b> code
+    </p>
+    <ul>
+        <li>Euler1</li>
+        <li>Euler17</li>
+        <li>Fractals</li>
+        <li>Console importer ETL</li>
+        <li>World bank webservice game</li>
+        <li>Databases (importer / ETL apps / MVC CRUD apps)</li>
+        <li>CRUD with ADO</li>
+        <li>CRUD with Dapper</li>
+        <li>CRUD with Sprocs</li>
+        <li>Validation</li>
+        <li>Paging, Sorting and Filtering, and Profiling</li>
+        <li>Exception handling, CQS, DI and IoC and Service Locator, Logging, Emailling</li>
+        <li>Selenium style testing</li>
+        <li>Refactoring a large application (OSS?)</li>
+    </ul>
 
-        <h2>Euler1</h2>
-        <p>
-            From <a href="https://projecteuler.net/problem=1">https://projecteuler.net/problem=1</a>
-        </p>
-        <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
-        <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+    <h2>Euler1</h2>
+    <p>
+        From <a href="https://projecteuler.net/problem=1">https://projecteuler.net/problem=1</a>
+    </p>
+    <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
+    <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
 
-        <pre class="prettyprint">
+    <pre class="prettyprint">
 // code here to demo a compiling but non working version
 </pre>
-        <a href="/pages/Euler1">Link to full article</a>
+    <a href="/pages/Euler1">Link to full article</a>
 
-        <h2>Euler17</h2>
-        <p>
-            From <a href="https://projecteuler.net/problem=17">https://projecteuler.net/problem=17</a>
-        </p>
-        <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
-        <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+    <h2>Euler17</h2>
+    <p>
+        From <a href="https://projecteuler.net/problem=17">https://projecteuler.net/problem=17</a>
+    </p>
+    <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
+    <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
 
-        <pre class="prettyprint">
+    <pre class="prettyprint">
 // code here to demo a compiling but non working version
 </pre>
-        <a href="/pages/Euler17">Link to full article</a>
+    <a href="/pages/Euler17">Link to full article</a>
 
 
-        <h2>Fractals</h2>
-        <p>
-            From <a href="http://23programs.blogspot.co.uk/2012/03/c-mandelbrot-set-fractal.html">here</a> a refactoring of this code
-        </p>
-        <p>A windows forms app for display Fractal images</p>
+    <h2>Fractals</h2>
+    <p>
+        From <a href="http://23programs.blogspot.co.uk/2012/03/c-mandelbrot-set-fractal.html">here</a> a refactoring of this code
+    </p>
+    <p>A windows forms app for display Fractal images</p>
 
-        <pre class="prettyprint">
+    <pre class="prettyprint">
 // code
 </pre>
-        <a href="/pages/Euler17">Link to full article</a>
+    <a href="/pages/Euler17">Link to full article</a>
 
 
 
 
-        <h2>CRUD with ADO</h2>
-        <p>Customer and Address. 1 Customer can have many delivery addresses eg Home, Work, School</p>
-        <p>This is a very simple example of</p>
-        <ul>
-            <li>Create Read Update Delete (CRUD)</li>
-            <li>Customers</li>
-            <li>Addresses</li>
-        </ul>
-        <p>Starting from the simplest MVC5 app, lets refactor:</p>
-        <pre class="prettyprint">
+    <h2>CRUD with ADO</h2>
+    <p>Customer and Address. 1 Customer can have many delivery addresses eg Home, Work, School</p>
+    <p>This is a very simple example of</p>
+    <ul>
+        <li>Create Read Update Delete (CRUD)</li>
+        <li>Customers</li>
+        <li>Addresses</li>
+    </ul>
+    <p>Starting from the simplest MVC5 app, lets refactor:</p>
+    <pre class="prettyprint">
 // starting code 
 </pre>
-        <a href="/pages/CRUD_using_ADO">Link to full article</a>
-    </div>
+    <a href="/pages/CRUD_using_ADO">Link to full article</a>
+</div>
 </div>

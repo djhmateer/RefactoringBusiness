@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Caching;
 using System.Web;
 using System.Web.Caching;
@@ -7,12 +8,48 @@ using CacheItemPriority = System.Web.Caching.CacheItemPriority;
 
 namespace RefactoringCSharp.Controllers
 {
+    // Enumeration
+    public enum WebsiteStatus
+    {
+        NotLoggedIn = 0,
+        NormalUser = 1,
+        Administrator = 2
+    }
+
+    // Class
     public class HomeController : Controller
     {
+        // String constant
+        const string EndOfWelcomeMessage = "Refactoring!";
+
+        // Fields **what other names**
+        Random _randomiser = new Random();
+        IList<string> _startOfWelcomeMessages;
+
+        // Property
+        public string Name { get; set; }
+
+
+        // Constructor
+        public HomeController()
+        {
+            _startOfWelcomeMessages = new List<string> { "Welcome to", "Hello from", "Rocking out with" };
+            int thing = (int)WebsiteStatus.Administrator;
+        }
+
+        // Method
         public ActionResult Index()
         {
+            // Local variable
+            int age = 32;
+            var index = _randomiser.Next(_startOfWelcomeMessages.Count);
+            ViewBag.Message = _startOfWelcomeMessages[index] + " " + EndOfWelcomeMessage;
             return View();
         }
+
+        // Method with a parameter **what other names ie pass a parameter??**
+        public void DoSomething(int age)
+        { }
 
         public ActionResult About()
         {
