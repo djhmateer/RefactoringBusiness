@@ -22,16 +22,16 @@ textarea {
 }
 
 blockquote {
-  padding: 10.5px 21px;
-  margin: 0 0 21px;
-  font-size: 14.75px;
-  border-left: 5px solid #dddddd;
+    padding: 10.5px 21px;
+    margin: 0 0 21px;
+    font-size: 14.75px;
+    border-left: 5px solid #dddddd;
 }
 
 @media (min-width: 1200px) {
-  .container {
-    width: 1000px
-  }
+    .container {
+        width: 1000px;
+    }
 }
 
 h1, .h1 {
@@ -57,9 +57,20 @@ p {
 pre {
     font-size: 13px;
     background-color: #f1e8e2;
-
 }
 
-pre.prettyprint {
-    border: 5px solid #888;
+    pre.prettyprint {
+        border: 5px solid #888;
+    }
+
+    /* Just a quick way to get labels looking better */
+label {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Source Sans Pro',"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #4c4c4c;
 }
+
+/*li {
+    list-style-type: none;
+}*/
