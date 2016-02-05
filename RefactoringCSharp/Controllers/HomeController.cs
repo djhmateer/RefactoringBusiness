@@ -4,11 +4,10 @@ using System.Runtime.Caching;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Mvc;
-using RefactoringCSharp;
-using RefactoringCSharp.Controllers;
+using Dave.RefactoringCSharp.Controllers;
 using CacheItemPriority = System.Web.Caching.CacheItemPriority;
 
-namespace Dave.RefactoringCSharp.Controllers
+namespace RefactoringCSharp.Controllers
 {
     // Enumeration
 
@@ -17,7 +16,6 @@ namespace Dave.RefactoringCSharp.Controllers
     {
         // String constant
         const string EndOfWelcomeMessage = "Refactoring!";
-
 
         // Static Fields, Member variable **what other names**
         static Random random = new Random();
