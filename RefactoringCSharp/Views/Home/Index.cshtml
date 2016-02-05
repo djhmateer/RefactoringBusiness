@@ -35,9 +35,11 @@
 
         <p>Useful Git commands</p>
 <pre class="prettyprint" title="Useful git commands">
-Copy-Item ..\Refactoring\.gitignore . # Copy in a .gitignore file from a local project
-Copy-Item ..\Refactoring\d.ps1 # Shortcut to load solution from GitShell type .\d
+Copy ..\Refactoring\.gitignore . # Copy in a .gitignore file from a local project
+Copy ..\Refactoring\d.ps1 # Shortcut to load solution 
+.\d # Run solution from command line
 git init  # Initialise the git repo.  eg in c:\dev\Euler22  do a git init.
+dir -Force # See hidden folders eg .git
 git add . # Add all files (but not ones in the .gitignore file)
 git add -A . # Include deletes in the 'add'
 git commit -m "initial commit"
@@ -65,7 +67,7 @@ git mv .\Eulor17_AG\ .\Euler17 # Move a directory - smarter than rename in explo
 
         <div>
             <h1>1 - Simple checks</h1>
-            
+
             @*This didn't give me the indent*@
             @*<ul class="list-unstyled">*@
             <ul style="list-style: none;">
@@ -222,6 +224,6 @@ Ctrl R Ctrl M  # RS Extract Method
 </pre>
             <a href="/pages/CRUD_using_ADO">Link to full article</a>
         </div>
-@*        Conways GOL, 1 or 2 pages only of code, satnav shortest path code, ball bouncing back and forth*@
+        @*        Conways GOL, 1 or 2 pages only of code, satnav shortest path code, ball bouncing back and forth*@
     </div>
 </form>
