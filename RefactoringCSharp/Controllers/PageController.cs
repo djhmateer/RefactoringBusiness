@@ -2,8 +2,9 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using RefactoringCSharp;
 
-namespace RefactoringCSharp.Controllers
+namespace Dave.RefactoringCSharp.Controllers
 {
     public class PageController : Controller
     {

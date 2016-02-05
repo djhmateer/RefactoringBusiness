@@ -165,7 +165,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MathFunctions.cs" />
     <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\WebsiteStatus.cs" />
     <Compile Include="DavesJokes.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -237,6 +239,7 @@
     <None Include="Properties\PublishProfiles\refactoring - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\DiffTool.jpg" />
+    <Content Include="Images\r.jpg" />
     <Content Include="Parameters.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

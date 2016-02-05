@@ -4,17 +4,13 @@ using System.Runtime.Caching;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Mvc;
+using RefactoringCSharp;
+using RefactoringCSharp.Controllers;
 using CacheItemPriority = System.Web.Caching.CacheItemPriority;
 
-namespace RefactoringCSharp.Controllers
+namespace Dave.RefactoringCSharp.Controllers
 {
     // Enumeration
-    public enum WebsiteStatus
-    {
-        NotLoggedIn = 0,
-        NormalUser = 1,
-        Administrator = 2
-    }
 
     // Class
     public class HomeController : Controller
@@ -22,34 +18,48 @@ namespace RefactoringCSharp.Controllers
         // String constant
         const string EndOfWelcomeMessage = "Refactoring!";
 
-        // Fields **what other names**
-        Random _randomiser = new Random();
-        IList<string> _startOfWelcomeMessages;
+
+        // Static Fields, Member variable **what other names**
+        static Random random = new Random();
+        static IList<string> preWelcomeMessages;
+        static int index;
 
         // Property
         public string Name { get; set; }
 
 
-        // Constructor
-        public HomeController()
+        // static Constructor
+        static HomeController()
         {
-            _startOfWelcomeMessages = new List<string> { "Welcome to", "Hello from", "Rocking out with" };
+            preWelcomeMessages = new List<string> { "Welcome to", "Hello from", "Rocking out with" };
             int thing = (int)WebsiteStatus.Administrator;
+            index = random.Next(preWelcomeMessages.Count);
         }
 
-        // Method
+        // Instance Method
         public ActionResult Index()
         {
-            // Local variable
-            int age = 32;
-            var index = _randomiser.Next(_startOfWelcomeMessages.Count);
-            ViewBag.Message = _startOfWelcomeMessages[index] + " " + EndOfWelcomeMessage;
+            ViewBag.Message = GetNextMessage();
             return View();
         }
 
+        // Static Method
+        private static string GetNextMessage()
+        {
+            // Extension method
+            index = index.CircularIncrement(preWelcomeMessages.Count);
+            var i = index;
+            var message = preWelcomeMessages[i] + " " + EndOfWelcomeMessage;
+            return message;
+        }
+
+
         // Method with a parameter **what other names ie pass a parameter??**
         public void DoSomething(int age)
-        { }
+        {
+            // Local variable
+            int a = 32;
+        }
 
         public ActionResult About()
         {

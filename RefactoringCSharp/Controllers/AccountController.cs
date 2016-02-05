@@ -5,9 +5,10 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using RefactoringCSharp;
 using RefactoringCSharp.Models;
 
-namespace RefactoringCSharp.Controllers
+namespace Dave.RefactoringCSharp.Controllers
 {
     [Authorize]
     public class AccountController : Controller
