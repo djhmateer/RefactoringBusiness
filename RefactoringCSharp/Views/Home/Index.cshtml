@@ -90,15 +90,15 @@ Ctrl - # RS Recent files go back to
         <div>
             <h1>2 - Rename and Auto Refactors</h1>
             <ul>
-                <li>Rename classes/methods/variables to make <b>clearer</b></li>
+                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Rename classes/methods/variables to make <b>clearer</b></label></li>
                 <ul>
                     <li>WriteToLog - good clear method name (Verb)</li>
                     <li>isAdministrator - good clear variable name (favour the positive)</li>
                     <li>_thing or thing - consistency important</li>
                 </ul>
-                <li>Favour short variable names for local scope</li>
-                <li>Favour as little code as possible</li>
-                <li>RS refactor suggestions to make more <b>readable</b> </li>
+                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour short variable names for local scope</label></li>
+                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour as little code as possible</label></li>
+                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> RS refactor suggestions to make more <b>readable</b></label></li>
                 <ul>
                     <li>for to foreach</li>
                     <li>Move variable to inner scope - RS</li>
@@ -125,7 +125,7 @@ Ctrl R R  # Rename
             </ul>
             <pre class="prettyprint" title="Useful VS and RS commands">
 Ctrl Shift R  # RS Refactor this
-Ctrl R M  # RS Extract Method
+Ctrl R M  # RS Extract Method - careful of out params which are not usually good
 </pre>
         </div>
 
