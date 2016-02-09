@@ -2,7 +2,6 @@
 
 <form action="">
     <div>
-        @*<p>@ViewBag.Message</p>*@
         <blockquote>
             <p>
                 <b>Code without tests is bad code</b>. It doesn't matter how well written it is; it doesn't matter how pretty or object-oriented or well-encapsulated it is. With tests, we can change the behaviour of our code quickly and verifiably. Without them, we really don't know if our code is getting better or worse.
@@ -17,11 +16,11 @@
         <div>
             <h1>1 - Simple checks</h1>
 
-            @*This didn't give me the indent*@
-            @*<ul class="list-unstyled">*@
             <ul style="list-style: none;">
                 <li><label><input type="checkbox" name="compile" value="Bike"> Does it <b>compile</b>?</label></li>
                 <li><label><input type="checkbox" name="compile" value="Bike"> Does it <b>run</b> producing the <b>correct</b> result?</label></li>
+                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Is the code <b>formatted</b>?</label> </li>
+                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Are there unsorted unnecessary usings?</label> </li>
                 <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete commented out code</label> </li>
                 <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete unnecessary code (greyed out in RS)</label></li>
                 <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete unnecessary comments</label></li>
