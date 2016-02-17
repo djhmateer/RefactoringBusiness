@@ -335,6 +335,7 @@ git merge Master # Do this whilst on feature branch
 git checkout Master
 git reset bc2d7  # Undoes all commits after bc2d7 (first 5 chars of hash), preserving changes locally
 git reset --hard bc2d7 # Undoes all commits after bc2d7, discarding local changes
+git push origin master --force  # Force the push
 git log # Show commits
 git lg # Show one liners (see link above for alias)
 git checkout -- . # Discard all changes in working directory, leaving any new files intact
