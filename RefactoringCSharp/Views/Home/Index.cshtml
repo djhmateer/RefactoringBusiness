@@ -4,14 +4,10 @@
     <div>
         <blockquote>
             <p>
-                <b>Refactoring</b>...is a disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior.
-            </p>
-            <p>
-                Its heart is a series of small behavior preserving transformations. Each transformation (called a “refactoring”) does little, but a sequence of transformations can produce a significant restructuring. Since each refactoring is small, it’s less likely to go wrong. The system is kept fully working after each small refactoring, reducing the chances that a system can get seriously broken during the restructuring.
+                <b>Refactoring</b>...is a <b>disciplined technique</b> for restructuring an existing body of code, altering its internal structure without changing its external behavior.
             </p>
             <p class="small">Martin Fowler - <a href="http://refactoring.com">refactoring.com</a></p>
         </blockquote>
-
 
         <blockquote>
             <p>
@@ -21,14 +17,36 @@
         </blockquote>
 
 
-        <blockquote>
-            <p>
-                <b>How to make great code?</b> Refactor mercilessly!
-            </p>
-            <p class="small">Me</p>
-        </blockquote>
 
-        <p>
+    <div>
+        <h1>Why Refactor?</h1>
+        <p>Because having well maintained code makes it easier to:</p>
+        <ul>
+            <li>Find bugs</li>
+            <li>Add features</li>
+            <li>Bring new developers up to speed</li>
+            <li>Solve performance issues</li>
+            <li>Prevent developer burnout</li>
+        </ul>
+    </div>
+
+        <div>
+            <h1>Formal Approaches</h1>
+            <p>What you see in this websites is based on the work of</p>
+            <ul>
+                <li>Martin Fowler</li>
+                <li>Michael Feathers</li>
+            </ul>
+            <p>and the goal is to give a <b>practical</b> guide on how to refactor in C#
+            </p>
+            <p>Formal techniques shown are:</p>
+            <ul>
+                <li>asdf</li>
+                <li>asdf</li>
+            </ul>
+        </div>
+
+    <p>
             Below is a <b>starting checklist</b> for refactoring, towards <b>good</b> testable code.
         </p>
 
@@ -56,10 +74,16 @@ Ctrl - # RS Recent files go back to
 
         <div>
             <h1>2 - Rename and Auto Refactors</h1>
+            <h2>Methods</h2>
             <ul>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Rename classes/methods/variables to make <b>clearer</b></label></li>
+                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Methods - <b>single focus</b>  VerbNoun</label></li>
                 <ul>
-                    <li>WriteToLog - good clear method name (Verb)</li>
+                    <li>WriteToLog</li>
+                    <li>GetPerson</li>
+                </ul>
+                asdfasdf
+
+                <li>
                     <li>isAdministrator - good clear variable name (favour the positive)</li>
                     <li>_thing or thing - consistency important</li>
                 </ul>
