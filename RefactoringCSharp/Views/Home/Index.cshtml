@@ -65,8 +65,9 @@
                 <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Is the code <b>formatted</b>?</label> </li>
                 <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Are there unsorted unnecessary usings?</label> </li>
                 <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete commented out code</label> </li>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete unnecessary code (greyed out in RS)</label></li>
                 <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete unnecessary comments</label></li>
+                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete unnecessary code (greyed out in RS)</label></li>
+                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Make comments clearer</label></li>
             </ul>
 
             <pre class="prettyprint" title="Useful VS and R# commands">
@@ -184,14 +185,13 @@ namespace ImporterConsole
             
             <pre class="prettyprint" title="Sample Code">
 // Refactored code after 1 - Simple Checks
-
-
-                using System;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-// Get large quantities of test Author and Book data for testing BookTech website
+
+// Get large quantities of Author and Book data for testing BookTech website
 // Needed for load testing, paging, filtering, sorting 
 namespace ImporterConsole
 {
@@ -239,11 +239,7 @@ namespace ImporterConsole
         }
     }
 }
-
-
-
 </pre>
-           
         </div>
 
         <div>
@@ -272,6 +268,7 @@ namespace ImporterConsole
 
             <pre class="prettyprint" title="Useful VS and R# commands">
 Alt Enter # RS Quick Actions
+Alt R M # RS Extract Method
 Ctrl . # VS Quick Actions
 Ctrl Alt RightArrow # RS Highlight
 Ctrl R R  # Rename
@@ -292,9 +289,12 @@ Ctrl Shift R  # RS Refactor this
 Ctrl R M  # RS Extract Method
 Shift Alt L # RS Go to file in Solution Explorer
 </pre>
-        </div>
+            
+            <pre class="prettyprint" title="Useful VS and RS commands">
+// Good code
+</pre>
 
-        <div>
+            <div>
             <h1>4 - Unit Test</h1>
             <p>Red, Green, Refactor towards:</p>
             <ul>
