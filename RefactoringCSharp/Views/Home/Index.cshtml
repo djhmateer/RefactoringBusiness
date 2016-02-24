@@ -202,6 +202,9 @@ namespace ImporterConsole
             var firstnames = File.ReadAllLines(@@"firstnames.txt").ToList();
             var surnames = File.ReadAllLines(@@"surnames.txt").ToList();
             var words = File.ReadAllLines(@@"words.txt").ToList();
+            Console.WriteLine(firstnames.Count + " firstnames loaded");
+            Console.WriteLine(surnames.Count + " surnames loaded");
+            Console.WriteLine(words.Count + " book title words loaded");
             var rnd = new Random();
             var connectionString = ConfigurationManager.ConnectionStrings["BookTechConnectionString"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
@@ -248,6 +251,7 @@ namespace ImporterConsole
             <ul>
                 <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Methods - <b>single focus</b>  VerbNoun</label></li>
                 <ul>
+                    <li>Trivial methods to refactor out eg</li>
                     <li>WriteToLog</li>
                     <li>GetPerson</li>
                 </ul>
