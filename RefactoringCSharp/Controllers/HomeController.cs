@@ -116,5 +116,10 @@ namespace RefactoringCSharp.Controllers
         {
             return View();
         }
+
+        public ActionResult GoodCode()
+        {
+            return View();
+        }
     }
 }
