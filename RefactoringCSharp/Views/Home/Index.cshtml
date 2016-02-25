@@ -9,12 +9,12 @@
             <p class="small">Martin Fowler - <a href="http://refactoring.com">refactoring.com</a></p>
         </blockquote>
 
-    <blockquote>
-        <p>
-            <b>Code without tests is bad code</b>. It doesn't matter how well written it is; it doesn't matter how pretty or object-oriented or well-encapsulated it is. With tests, we can change the behaviour of our code quickly and verifiably. Without them, we really don't know if our code is getting better or worse.
-        </p>
-        <p class="small">Michael Feathers - Working with Legacy Code</p>
-    </blockquote>
+        <blockquote>
+            <p>
+                <b>Code without tests is bad code</b>. It doesn't matter how well written it is; it doesn't matter how pretty or object-oriented or well-encapsulated it is. With tests, we can change the behaviour of our code quickly and verifiably. Without them, we really don't know if our code is getting better or worse.
+            </p>
+            <p class="small">Michael Feathers - Working with Legacy Code</p>
+        </blockquote>
 
         <blockquote>
             <p>
@@ -23,18 +23,18 @@
             <p class="small">K Scott Allen - Pluralsight Author</p>
         </blockquote>
 
-    <div>
-        <h1>Why Refactor?</h1>
-        <p>Because having well maintained code makes it easier to:</p>
-        <ul>
-            <li>Find bugs</li>
-            <li>Test (so less bugs)</li>
-            <li>Add features</li>
-            <li>Bring new developers up to speed</li>
-            <li>Solve performance issues</li>
-            <li>Prevent developer burnout</li>
-        </ul>
-    </div>
+        <div>
+            <h1>Why Refactor?</h1>
+            <p>Because having well maintained code makes it easier to:</p>
+            <ul>
+                <li>Find bugs</li>
+                <li>Test (so less bugs)</li>
+                <li>Add features</li>
+                <li>Bring new developers up to speed</li>
+                <li>Solve performance issues</li>
+                <li>Prevent developer burnout</li>
+            </ul>
+        </div>
 
         <div>
             <h1>Formal Approaches</h1>
@@ -43,11 +43,12 @@
                 <li>Martin Fowler</li>
                 <li>Michael Feathers</li>
             </ul>
-            <p>with the goal of giving a <b>practical</b> guide on how to refactor in C# ASP.NET MVC
+            <p>
+                with the goal of giving a <b>practical</b> guide on how to refactor in C# ASP.NET MVC
             </p>
         </div>
-    <br/>
-    <p>
+        <br />
+        <p>
             Below is a <b>starting checklist</b> for refactoring, towards <b>good</b> testable code.
         </p>
 
@@ -57,8 +58,8 @@
             <pre class="prettyprint" title="English">
 // Its' a bit like reading when your not happy about there grammer and spelling and inconsistent  spacing and,  commas.
 </pre>
-            <p>This drives me <b>nuts</b>!  Same in code.  Lets take care.</p>
-
+            <p>This drives me <b>nuts</b>!</p>
+            <br />
             <ul style="list-style: none;">
                 <li><label><input type="checkbox" name="compile" value="Bike"> Does it <b>compile</b>?</label></li>
                 <li><label><input type="checkbox" name="compile" value="Bike"> Does it <b>run</b> producing the <b>correct</b> result?</label></li>
@@ -180,9 +181,8 @@ namespace ImporterConsole
         }
     }
 }
-
 </pre>
-            
+
             <pre class="prettyprint" title="Sample Code">
 // Refactored code after 1 - Simple Checks
 using System;
@@ -190,7 +190,6 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-
 // Get large quantities of Author and Book data for testing BookTech website
 // Needed for load testing, paging, filtering, sorting 
 namespace ImporterConsole
@@ -257,17 +256,17 @@ namespace ImporterConsole
                 </ul>
 
                 <li>
-                    <li>isAdministrator - good clear variable name (favour the positive)</li>
-                    <li>_thing or thing - consistency important</li>
-                </ul>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour short variable names for local scope</label></li>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour as little code as possible</label></li>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> RS refactor suggestions to make more <b>readable</b></label></li>
-                <ul>
-                    <li>for to foreach</li>
-                    <li>Move variable to inner scope - RS</li>
-                    <li>Inline temp variables - RS (careful!)</li>
-                </ul>
+                <li>isAdministrator - good clear variable name (favour the positive)</li>
+                <li>_thing or thing - consistency important</li>
+            </ul>
+            <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour short variable names for local scope</label></li>
+            <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour as little code as possible</label></li>
+            <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> RS refactor suggestions to make more <b>readable</b></label></li>
+            <ul>
+                <li>for to foreach</li>
+                <li>Move variable to inner scope - RS</li>
+                <li>Inline temp variables - RS (careful!)</li>
+            </ul>
             </ul>
 
             <pre class="prettyprint" title="Useful VS and R# commands">
@@ -279,26 +278,79 @@ Ctrl R R  # Rename
 </pre>
         </div>
 
-        <div>
-            <h1>3 - Long Methods</h1>
-            <ul>
-                <li>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></li>
-                <li>20 line max methods, Rule of Thumb</li>
-                <li>Minimize Parameters</li>
-                <li>Avoid flag argumnets eg Render(bool useColour), could be RenderWithColour() and RenderWithoutColour()</li>
-                <li>Favour methods which are <b>Commands</b> (ie do something and return void), or <b>Queries</b> (no side effects, return something) - CQS</li>
-            </ul>
-            <pre class="prettyprint" title="Useful VS and RS commands">
+        <pre class="prettyprint" title="Useful VS and R# commands">
+// 1 - Variables
+// Bad 
+string bt; // book title
+
+// Good 
+string bookTitle;
+
+// Good as scope is small for i
+for (int i = 0; i < 5; i++) 
+{
+  // not many lines of code...
+}
+
+// Bad - Hungarian
+var strBookTitle = "";
+var txtBookAuthor = "" // Windows forms thoughts.. would keep to be consistent
+
+
+// 2 - Methods
+// Bad - Unclear Method
+public void Process()
+
+// Good
+public void GetBookTitleFromListOfWordsAndFillerWords()
+
+// Good - Verb or Verb Phrase
+public void AddBook()
+public void DeleteAuthor()
+public void ParseBookTitle()
+
+// Good - Boolean (favour positive)
+public bool IsValid()
+
+
+// 3 - Classes
+// Bad Class Names (nebulous)
+public class ObjectManager
+public class EntityProcessor
+
+// Good Class Names.  Noun or noun phrase
+public class Book
+pulbic class BookParser
+public class AddBookCommand
+
+
+
+
+
+
+</pre>
+    </div>
+
+    <div>
+        <h1>3 - Long Methods</h1>
+        <ul>
+            <li>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></li>
+            <li>20 line max methods, Rule of Thumb</li>
+            <li>Minimize Parameters</li>
+            <li>Avoid flag argumnets eg Render(bool useColour), could be RenderWithColour() and RenderWithoutColour()</li>
+            <li>Favour methods which are <b>Commands</b> (ie do something and return void), or <b>Queries</b> (no side effects, return something) - CQS</li>
+        </ul>
+        <pre class="prettyprint" title="Useful VS and RS commands">
 Ctrl Shift R  # RS Refactor this
 Ctrl R M  # RS Extract Method
 Shift Alt L # RS Go to file in Solution Explorer
 </pre>
-            
-            <pre class="prettyprint" title="Useful VS and RS commands">
+
+        <pre class="prettyprint" title="Useful VS and RS commands">
 // Good code
 </pre>
 
-            <div>
+        <div>
             <h1>4 - Unit Test</h1>
             <p>Red, Green, Refactor towards:</p>
             <ul>
