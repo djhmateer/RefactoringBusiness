@@ -286,11 +286,14 @@ string bt; // book title
 // Good 
 string bookTitle;
 
-// Good as scope is small for i
-for (int i = 0; i < 5; i++) 
-{
-  // not many lines of code...
-}
+// Good variable name length increase with scope
+for (int i = 0; i < 5; i++) {}
+
+// Good - short method variable names
+var authors = GetAllAuthors();
+
+// Good - longer field variable names
+int totalNumberOfBooks = 0;
 
 // Bad - Hungarian
 var strBookTitle = "";
@@ -302,7 +305,7 @@ var txtBookAuthor = "" // Windows forms thoughts.. would keep to be consistent
 public void Process()
 
 // Good
-public void GetBookTitleFromListOfWordsAndFillerWords()
+public void GetBookTitleFromListOfWords()
 
 // Good - Verb or Verb Phrase
 public void AddBook()
@@ -311,6 +314,15 @@ public void ParseBookTitle()
 
 // Good - Boolean (favour positive)
 public bool IsValid()
+
+// Length of method names should decrease with scope
+// Good - short public method name
+public void GetBooks()
+public void Save()
+
+// Good - longer private method name
+private string DisplaySummaryCountOfLoadedFiles()
+private string GenerateBookTitle()
 
 
 // 3 - Classes
@@ -323,11 +335,12 @@ public class Book
 pulbic class BookParser
 public class AddBookCommand
 
+// Length of class names should decrease with Scope
+// Good - short public class
+public class Book
 
-
-
-
-
+// Good - longer private class name
+private class BookNameGenerator
 </pre>
     </div>
 
@@ -347,7 +360,53 @@ Shift Alt L # RS Go to file in Solution Explorer
 </pre>
 
         <pre class="prettyprint" title="Useful VS and RS commands">
-// Good code
+// Methods / Functions - most evidence says less than 20 lines is good
+
+// Functions should do 1 thing
+
+// Good - Separate levels of abstraction
+
+public Author CreateAuthor()
+
+public string CreateAuthorFirstName()
+
+public bool HasBeenUsedBeforeRecently()
+
+// Use Functions to make code more readable
+// Good - uses small named functions
+public void CreateOutput() 
+{
+  CreateHeader();
+  CreateBody();
+  CreateFooter();
+}
+
+
+// Bad - flag arguments
+public void Save(bool isFiction)
+
+// Good - no flag argument
+public void SaveFiction()
+public void SaveNonFiction()
+
+// Bad - out argument
+public void LoadWordsFile(out string[] words)
+
+// Good - no out
+public string[] LoadWordsFile()
+
+// Use CQS - Command Query Separation
+
+// Good - Command which modifies state and returns void
+public void Save(Book book)
+
+// Good - Query does not modify state
+public Book GetBook(int id)
+
+
+
+
+
 </pre>
 
         <div>
