@@ -37,7 +37,7 @@
         </div>
 
         <div>
-            <h1>Formal Approaches</h1>
+            <h1>Approaches</h1>
             <p>A lot of this website is based on the work of</p>
             <ul>
                 <li>Martin Fowler</li>
@@ -58,8 +58,6 @@
             <pre class="prettyprint" title="English">
 // Its' a bit like reading when your not happy about there grammer and spelling and inconsistent  spacing and,  commas.
 </pre>
-            <p>This drives me <b>nuts</b>!</p>
-            <br />
             <ul style="list-style: none;">
                 <li><label><input type="checkbox" name="compile" value="Bike"> Does it <b>compile</b>?</label></li>
                 <li><label><input type="checkbox" name="compile" value="Bike"> Does it <b>run</b> producing the <b>correct</b> result?</label></li>
@@ -246,19 +244,20 @@ namespace ImporterConsole
 
         <div>
             <h1>2 - Rename and Auto Refactors</h1>
-            <h2>Methods</h2>
+            <h2>@*Methods*@</h2>
             <ul>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Methods - <b>single focus</b>  VerbNoun</label></li>
-                <ul>
-                    <li>Trivial methods to refactor out eg</li>
-                    <li>WriteToLog</li>
-                    <li>GetPerson</li>
-                </ul>
+@*
+        <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Methods - <b>single focus</b>  VerbNoun</label></li>
+        <ul>
+            <li>Trivial methods to refactor out eg</li>
+            <li>WriteToLog</li>
+            <li>GetPerson</li>
+        </ul>
 
-                <li>
-                <li>isAdministrator - good clear variable name (favour the positive)</li>
-                <li>_thing or thing - consistency important</li>
-            </ul>
+        <li>
+        <li>isAdministrator - good clear variable name (favour the positive)</li>
+        <li>_thing or thing - consistency important</li>
+    </ul>*@
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour short variable names for local scope</label></li>
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour as little code as possible</label></li>
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> RS refactor suggestions to make more <b>readable</b></label></li>
@@ -346,12 +345,12 @@ private class BookNameGenerator
 
     <div>
         <h1>3 - Long Methods</h1>
+        <p>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></p>
         <ul>
-            <li>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></li>
-            <li>20 line max methods, Rule of Thumb</li>
-            <li>Minimize Parameters</li>
-            <li>Avoid flag argumnets eg Render(bool useColour), could be RenderWithColour() and RenderWithoutColour()</li>
-            <li>Favour methods which are <b>Commands</b> (ie do something and return void), or <b>Queries</b> (no side effects, return something) - CQS</li>
+            <li><label><input type="checkbox" name="compile" value=""> 20 line method Rule of Thumb</label></li>
+            <li><label><input type="checkbox" name="compile" value=""> Minimize Parameters</label></li>
+            <li><label><input type="checkbox" name="compile" value=""> Avoid flag argumnets eg Render(bool useColour)</label></li>
+            <li><label><input type="checkbox" name="compile" value=""> Favour methods which are <b>Commands</b>, or <b>Queries</b></label></li>
         </ul>
         <pre class="prettyprint" title="Useful VS and RS commands">
 Ctrl Shift R  # RS Refactor this
@@ -360,27 +359,21 @@ Shift Alt L # RS Go to file in Solution Explorer
 </pre>
 
         <pre class="prettyprint" title="Useful VS and RS commands">
-// Methods / Functions - most evidence says less than 20 lines is good
-
 // Functions should do 1 thing
 
 // Good - Separate levels of abstraction
-
 public Author CreateAuthor()
-
 public string CreateAuthorFirstName()
-
-public bool HasBeenUsedBeforeRecently()
+public bool HasAuthorFirstNameBeenUsedRecently()
 
 // Use Functions to make code more readable
-// Good - uses small named functions
+// Good - use small named functions
 public void CreateOutput() 
 {
   CreateHeader();
   CreateBody();
   CreateFooter();
 }
-
 
 // Bad - flag arguments
 public void Save(bool isFiction)
@@ -402,11 +395,6 @@ public void Save(Book book)
 
 // Good - Query does not modify state
 public Book GetBook(int id)
-
-
-
-
-
 </pre>
 
         <div>
