@@ -1,81 +1,100 @@
 ﻿@{  ViewBag.Title = "Refactoring C#";}
 
-<form action="">
-    <div>
-        <blockquote>
-            <p>
-                <b>Refactoring</b>...is a <b>disciplined technique</b> for restructuring an existing body of code, altering its internal structure without changing its external behavior.
-            </p>
-            <p class="small">Martin Fowler - <a href="http://refactoring.com">refactoring.com</a></p>
-        </blockquote>
+<script type="text/javascript">
+    function toggle_visibility(id) {
+        var e = document.getElementById(id);
+        if (e.style.display == 'block')
+            e.style.display = 'none';
+        else
+            e.style.display = 'block';
 
-        <blockquote>
-            <p>
-                <b>Code without tests is bad code</b>. It doesn't matter how well written it is; it doesn't matter how pretty or object-oriented or well-encapsulated it is. With tests, we can change the behaviour of our code quickly and verifiably. Without them, we really don't know if our code is getting better or worse.
-            </p>
-            <p class="small">Michael Feathers - Working with Legacy Code</p>
-        </blockquote>
+        // The other toggle section
+        var e2 = document.getElementById('idOfElement2');
+        if (e2.style.display == 'block')
+            e2.style.display = 'none';
+        else
+            e2.style.display = 'block';
+    }
+</script>
 
-        <blockquote>
-            <p>
-                Test Driven Development - the <b>most beneficial practice</b> I have ever followed in my career
-            </p>
-            <p class="small">K Scott Allen - Pluralsight Author</p>
-        </blockquote>
-
-        <div>
-            <h1>Why Refactor?</h1>
-            <p>Because having well maintained code makes it easier to:</p>
-            <ul>
-                <li>Find bugs</li>
-                <li>Test (so less bugs)</li>
-                <li>Add features</li>
-                <li>Bring new developers up to speed</li>
-                <li>Solve performance issues</li>
-                <li>Prevent developer burnout</li>
-            </ul>
-        </div>
-
-        <div>
-            <h1>Approaches</h1>
-            <p>A lot of this website is based on the work of</p>
-            <ul>
-                <li>Martin Fowler</li>
-                <li>Michael Feathers</li>
-            </ul>
-            <p>
-                with the goal of giving a <b>practical</b> guide on how to refactor in C# ASP.NET MVC
-            </p>
-        </div>
-        <br />
+@*<form action="">*@
+<div>
+    <blockquote>
         <p>
-            Below is a <b>starting checklist</b> for refactoring, towards <b>good</b> testable code.
+            <b>Refactoring</b>...is a <b>disciplined technique</b> for restructuring an existing body of code, altering its internal structure without changing its external behavior.
         </p>
+        <p class="small">Martin Fowler - <a href="http://refactoring.com">refactoring.com</a></p>
+    </blockquote>
 
-        <div>
-            <h1>1 - Simple checks</h1>
-            <p>Here is an example in English:</p>
-            <pre class="prettyprint" title="English">
+    <blockquote>
+        <p>
+            <b>Code without tests is bad code</b>. It doesn't matter how well written it is; it doesn't matter how pretty or object-oriented or well-encapsulated it is. With tests, we can change the behaviour of our code quickly and verifiably. Without them, we really don't know if our code is getting better or worse.
+        </p>
+        <p class="small">Michael Feathers - Working with Legacy Code</p>
+    </blockquote>
+
+    <blockquote>
+        <p>
+            Test Driven Development - the <b>most beneficial practice</b> I have ever followed in my career
+        </p>
+        <p class="small">K Scott Allen - Pluralsight Author</p>
+    </blockquote>
+
+    <div>
+        <h1>Why Refactor?</h1>
+        <p>Because having well maintained code makes it easier to:</p>
+        <ul>
+            <li>Find bugs</li>
+            <li>Test (so less bugs)</li>
+            <li>Add features</li>
+            <li>Bring new developers up to speed</li>
+            <li>Solve performance issues</li>
+            <li>Prevent developer burnout</li>
+        </ul>
+    </div>
+
+    <div>
+        <h1>Approaches</h1>
+        <p>A lot of this website is based on the work of</p>
+        <ul>
+            <li>Martin Fowler</li>
+            <li>Michael Feathers</li>
+        </ul>
+        <p>
+            with the goal of giving a <b>practical</b> guide on how to refactor in C# ASP.NET MVC
+        </p>
+    </div>
+    <br />
+    <p>
+        Below is a <b>starting checklist</b> for refactoring, towards <b>good</b> testable code.
+    </p>
+
+    <div>
+        <h1>1 - Simple checks</h1>
+        <p>Here is an example in English:</p>
+        <pre class="prettyprint" title="English">
 // Its' a bit like reading when your not happy about there grammer and spelling and inconsistent  spacing and,  commas.
 </pre>
-            <ul style="list-style: none;">
-                <li><label><input type="checkbox" name="compile" value="Bike"> Does it <b>compile</b>?</label></li>
-                <li><label><input type="checkbox" name="compile" value="Bike"> Does it <b>run</b> producing the <b>correct</b> result?</label></li>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Is the code <b>formatted</b>?</label> </li>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Are there unsorted unnecessary usings?</label> </li>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete commented out code</label> </li>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete unnecessary comments</label></li>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete unnecessary code (greyed out in RS)</label></li>
-                <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Make comments clearer</label></li>
-            </ul>
+        <ul style="list-style: none;">
+            <li><label><input type="checkbox" name="compile" value="Bike"> Does it <b>compile</b>?</label></li>
+            <li><label><input type="checkbox" name="compile" value="Bike"> Does it <b>run</b> producing the <b>correct</b> result?</label></li>
+            <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Is the code <b>formatted</b>?</label> </li>
+            <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Are there unsorted unnecessary usings?</label> </li>
+            <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete commented out code</label> </li>
+            <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete unnecessary comments</label></li>
+            <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Delete unnecessary code (greyed out in RS)</label></li>
+            <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Make comments clearer</label></li>
+        </ul>
 
-            <pre class="prettyprint" title="Useful VS and R# commands">
+        <pre class="prettyprint" title="Useful VS and R# commands">
 Alt E I O A  #  VS Remove and tidy unused usings         
 Ctrl K D  # VS Auto Format
 Ctrl L # RS Delete line
 Ctrl T # RS Go to Type eg HC HomeController
 Ctrl - # RS Recent files go back to
 </pre>
+        <button id="button" onclick="toggle_visibility('idOfElement');">Bad Code</button>
+        <div id="idOfElement" style="display: none; white-space: pre-line">
             <pre class="prettyprint" title="Sample Code">
 // Bad code!
 // Source is in a Tag: https://github.com/djhmateer/booktechdataimporter/blob/BeforeStage1/ImporterConsole/Program.cs
@@ -180,7 +199,14 @@ namespace ImporterConsole
     }
 }
 </pre>
+        </div>
+        @*<div id="idOfElement2" style="display: block; white-space: pre-line">
+        
+        </div>*@
 
+    <button id="button" onclick="toggle_visibility('idOfElementRefactored');">Good Code</button>
+
+        <div id="idOfElementRefactored" style="display: none; white-space: pre-line">
             <pre class="prettyprint" title="Sample Code">
 // Refactored code after 1 - Simple Checks
 using System;
@@ -242,22 +268,25 @@ namespace ImporterConsole
 </pre>
         </div>
 
-        <div>
-            <h1>2 - Rename and Auto Refactors</h1>
-            <h2>@*Methods*@</h2>
-            <ul>
-@*
-        <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Methods - <b>single focus</b>  VerbNoun</label></li>
-        <ul>
-            <li>Trivial methods to refactor out eg</li>
-            <li>WriteToLog</li>
-            <li>GetPerson</li>
-        </ul>
+      
+    </div>
 
-        <li>
-        <li>isAdministrator - good clear variable name (favour the positive)</li>
-        <li>_thing or thing - consistency important</li>
-    </ul>*@
+    <div>
+        <h1>2 - Rename and Auto Refactors</h1>
+        <h2>@*Methods*@</h2>
+        <ul>
+            @*
+                    <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Methods - <b>single focus</b>  VerbNoun</label></li>
+                    <ul>
+                        <li>Trivial methods to refactor out eg</li>
+                        <li>WriteToLog</li>
+                        <li>GetPerson</li>
+                    </ul>
+
+                    <li>
+                    <li>isAdministrator - good clear variable name (favour the positive)</li>
+                    <li>_thing or thing - consistency important</li>
+                </ul>*@
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour short variable names for local scope</label></li>
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour as little code as possible</label></li>
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> RS refactor suggestions to make more <b>readable</b></label></li>
@@ -266,106 +295,87 @@ namespace ImporterConsole
                 <li>Move variable to inner scope - RS</li>
                 <li>Inline temp variables - RS (careful!)</li>
             </ul>
-            </ul>
+        </ul>
 
-            <pre class="prettyprint" title="Useful VS and R# commands">
+        <pre class="prettyprint" title="Useful VS and R# commands">
 Alt Enter # RS Quick Actions
 Alt R M # RS Extract Method
 Ctrl . # VS Quick Actions
 Ctrl Alt RightArrow # RS Highlight
 Ctrl R R  # Rename
 </pre>
-        </div>
+    </div>
 
-        <pre class="prettyprint" title="Useful VS and R# commands">
+    <pre class="prettyprint" title="Useful VS and R# commands">
 // 1 - Variables
 // Bad 
 string bt; // book title
-
 // Good 
 string bookTitle;
-
 // Good variable name length increase with scope
 for (int i = 0; i < 5; i++) {}
-
 // Good - short method variable names
 var authors = GetAllAuthors();
-
 // Good - longer field variable names
 int totalNumberOfBooks = 0;
-
 // Bad - Hungarian
 var strBookTitle = "";
 var txtBookAuthor = "" // Windows forms thoughts.. would keep to be consistent
-
-
 // 2 - Methods
 // Bad - Unclear Method
 public void Process()
-
 // Good
 public void GetBookTitleFromListOfWords()
-
 // Good - Verb or Verb Phrase
 public void AddBook()
 public void DeleteAuthor()
 public void ParseBookTitle()
-
 // Good - Boolean (favour positive)
 public bool IsValid()
-
 // Length of method names should decrease with scope
 // Good - short public method name
 public void GetBooks()
 public void Save()
-
 // Good - longer private method name
 private string DisplaySummaryCountOfLoadedFiles()
 private string GenerateBookTitle()
-
-
 // 3 - Classes
 // Bad Class Names (nebulous)
 public class ObjectManager
 public class EntityProcessor
-
 // Good Class Names.  Noun or noun phrase
 public class Book
 pulbic class BookParser
 public class AddBookCommand
-
 // Length of class names should decrease with Scope
 // Good - short public class
 public class Book
-
 // Good - longer private class name
 private class BookNameGenerator
 </pre>
-    </div>
+</div>
 
-    <div>
-        <h1>3 - Long Methods</h1>
-        <p>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></p>
-        <ul>
-            <li><label><input type="checkbox" name="compile" value=""> 20 line method Rule of Thumb</label></li>
-            <li><label><input type="checkbox" name="compile" value=""> Minimize Parameters</label></li>
-            <li><label><input type="checkbox" name="compile" value=""> Avoid flag argumnets eg Render(bool useColour)</label></li>
-            <li><label><input type="checkbox" name="compile" value=""> Favour methods which are <b>Commands</b>, or <b>Queries</b></label></li>
-        </ul>
-        <pre class="prettyprint" title="Useful VS and RS commands">
+<div>
+    <h1>3 - Long Methods</h1>
+    <p>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></p>
+    <ul>
+        <li><label><input type="checkbox" name="compile" value=""> 20 line method Rule of Thumb</label></li>
+        <li><label><input type="checkbox" name="compile" value=""> Minimize Parameters</label></li>
+        <li><label><input type="checkbox" name="compile" value=""> Avoid flag argumnets eg Render(bool useColour)</label></li>
+        <li><label><input type="checkbox" name="compile" value=""> Favour methods which are <b>Commands</b>, or <b>Queries</b></label></li>
+    </ul>
+    <pre class="prettyprint" title="Useful VS and RS commands">
 Ctrl Shift R  # RS Refactor this
 Ctrl R M  # RS Extract Method
 Shift Alt L # RS Go to file in Solution Explorer
 </pre>
 
-        <pre class="prettyprint" title="Useful VS and RS commands">
+    <pre class="prettyprint" title="Useful VS and RS commands">
 // Functions should do 1 thing
-
 // Good - Separate levels of abstraction
 public Author CreateAuthor()
 public string CreateAuthorFirstName()
 public bool HasAuthorFirstNameBeenUsedRecently()
-
 // Use Functions to make code more readable
 // Good - use small named functions
 public void CreateOutput() 
@@ -374,137 +384,130 @@ public void CreateOutput()
   CreateBody();
   CreateFooter();
 }
-
 // Bad - flag arguments
 public void Save(bool isFiction)
-
 // Good - no flag argument
 public void SaveFiction()
 public void SaveNonFiction()
-
 // Bad - out argument
 public void LoadWordsFile(out string[] words)
-
 // Good - no out
 public string[] LoadWordsFile()
-
 // Use CQS - Command Query Separation
-
 // Good - Command which modifies state and returns void
 public void Save(Book book)
-
 // Good - Query does not modify state
 public Book GetBook(int id)
 </pre>
 
-        <div>
-            <h1>4 - Unit Test</h1>
-            <p>Red, Green, Refactor towards:</p>
-            <ul>
-                <li>Short methods which are more <b>easily testable</b> and <b>simpler</b></li>
-                <li>Performance - measure using timings.. Can algorithm be smarter eg less iterations in loops</li>
-            </ul>
-        </div>
+    <div>
+        <h1>4 - Unit Test</h1>
+        <p>Red, Green, Refactor towards:</p>
+        <ul>
+            <li>Short methods which are more <b>easily testable</b> and <b>simpler</b></li>
+            <li>Performance - measure using timings.. Can algorithm be smarter eg less iterations in loops</li>
+        </ul>
+    </div>
 
-        <div>
-            <h1>5 - Error Handling</h1>
-            <p>Write first!</p>
-            <ul>
-                <li>Use <b>Exceptions</b> when things are exceptional! ie not return codes</li>
-                <li>Don't return null</li>
-            </ul>
-        </div>
+    <div>
+        <h1>5 - Error Handling</h1>
+        <p>Write first!</p>
+        <ul>
+            <li>Use <b>Exceptions</b> when things are exceptional! ie not return codes</li>
+            <li>Don't return null</li>
+        </ul>
+    </div>
 
-        <div>
-            <h1>6 - Logging</h1>
-            <p>Is good</p>
-            <ul>
-                <li>Log!</li>
-            </ul>
-        </div>
+    <div>
+        <h1>6 - Logging</h1>
+        <p>Is good</p>
+        <ul>
+            <li>Log!</li>
+        </ul>
+    </div>
 
-        <div>
-            <h1>7 - Small Parts to build a System</h1>
-            <p></p>
-            <ul>
-                <li>Separation of Main</li>
-                <li>Dependency Injection</li>
-                <li>Small Classes</li>
-            </ul>
-        </div>
+    <div>
+        <h1>7 - Small Parts to build a System</h1>
+        <p></p>
+        <ul>
+            <li>Separation of Main</li>
+            <li>Dependency Injection</li>
+            <li>Small Classes</li>
+        </ul>
+    </div>
 
-        <hr />
-        <div>
-            <h1>Examples!</h1>
-            <p>
-                Using the steps above, I will walk through examples giving the path of getting to <b>good</b> code
-            </p>
-            <ul>
-                <li>Euler1</li>
-                <li>Euler17</li>
-                <li>Fractals</li>
-                <li>Console importer ETL</li>
-                <li>World bank webservice game</li>
-                <li>Databases (importer / ETL apps / MVC CRUD apps)</li>
-                <li>CRUD with ADO</li>
-                <li>CRUD with Dapper</li>
-                <li>CRUD with Sprocs</li>
-                <li>Validation</li>
-                <li>Paging, Sorting and Filtering, and Profiling</li>
-                <li>Exception handling, CQS, DI and IoC and Service Locator, Logging, Emailling</li>
-                <li>Selenium style testing</li>
-                <li>Refactoring a large application (OSS?)</li>
-            </ul>
+    <hr />
+    <div>
+        <h1>Examples!</h1>
+        <p>
+            Using the steps above, I will walk through examples giving the path of getting to <b>good</b> code
+        </p>
+        <ul>
+            <li>Euler1</li>
+            <li>Euler17</li>
+            <li>Fractals</li>
+            <li>Console importer ETL</li>
+            <li>World bank webservice game</li>
+            <li>Databases (importer / ETL apps / MVC CRUD apps)</li>
+            <li>CRUD with ADO</li>
+            <li>CRUD with Dapper</li>
+            <li>CRUD with Sprocs</li>
+            <li>Validation</li>
+            <li>Paging, Sorting and Filtering, and Profiling</li>
+            <li>Exception handling, CQS, DI and IoC and Service Locator, Logging, Emailling</li>
+            <li>Selenium style testing</li>
+            <li>Refactoring a large application (OSS?)</li>
+        </ul>
 
-            <h2>Euler1</h2>
-            <p>
-                From <a href="https://projecteuler.net/problem=1">https://projecteuler.net/problem=1</a>
-            </p>
-            <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
-            <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+        <h2>Euler1</h2>
+        <p>
+            From <a href="https://projecteuler.net/problem=1">https://projecteuler.net/problem=1</a>
+        </p>
+        <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
+        <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
 
-            <pre class="prettyprint">
+        <pre class="prettyprint">
 // code here to demo a compiling but non working version
 </pre>
-            <a href="/pages/Euler1">Link to full article</a>
+        <a href="/pages/Euler1">Link to full article</a>
 
-            <h2>Euler17</h2>
-            <p>
-                From <a href="https://projecteuler.net/problem=17">https://projecteuler.net/problem=17</a>
-            </p>
-            <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
-            <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+        <h2>Euler17</h2>
+        <p>
+            From <a href="https://projecteuler.net/problem=17">https://projecteuler.net/problem=17</a>
+        </p>
+        <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
+        <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
 
-            <pre class="prettyprint">
+        <pre class="prettyprint">
 // code here to demo a compiling but non working version
 </pre>
-            <a href="/pages/Euler17">Link to full article</a>
+        <a href="/pages/Euler17">Link to full article</a>
 
 
-            <h2>Fractals</h2>
-            <p>
-                From <a href="http://23programs.blogspot.co.uk/2012/03/c-mandelbrot-set-fractal.html">here</a> a refactoring of this code
-            </p>
-            <p>A windows forms app for display Fractal images</p>
+        <h2>Fractals</h2>
+        <p>
+            From <a href="http://23programs.blogspot.co.uk/2012/03/c-mandelbrot-set-fractal.html">here</a> a refactoring of this code
+        </p>
+        <p>A windows forms app for display Fractal images</p>
 
-            <pre class="prettyprint">
+        <pre class="prettyprint">
 // code
 </pre>
-            <a href="/pages/Euler17">Link to full article</a>
-            <h2>CRUD with ADO</h2>
-            <p>Customer and Address. 1 Customer can have many delivery addresses eg Home, Work, School</p>
-            <p>This is a very simple example of</p>
-            <ul>
-                <li>Create Read Update Delete (CRUD)</li>
-                <li>Customers</li>
-                <li>Addresses</li>
-            </ul>
-            <p>Starting from the simplest MVC5 app, lets refactor:</p>
-            <pre class="prettyprint">
+        <a href="/pages/Euler17">Link to full article</a>
+        <h2>CRUD with ADO</h2>
+        <p>Customer and Address. 1 Customer can have many delivery addresses eg Home, Work, School</p>
+        <p>This is a very simple example of</p>
+        <ul>
+            <li>Create Read Update Delete (CRUD)</li>
+            <li>Customers</li>
+            <li>Addresses</li>
+        </ul>
+        <p>Starting from the simplest MVC5 app, lets refactor:</p>
+        <pre class="prettyprint">
 // starting code 
 </pre>
-            <a href="/pages/CRUD_using_ADO">Link to full article</a>
-        </div>
-        @*        Conways GOL, 1 or 2 pages only of code, satnav shortest path code, ball bouncing back and forth*@
+        <a href="/pages/CRUD_using_ADO">Link to full article</a>
     </div>
-</form>
+    @*        Conways GOL, 1 or 2 pages only of code, satnav shortest path code, ball bouncing back and forth*@
+</div>
+@*</form>*@
