@@ -95,7 +95,7 @@ Ctrl - # RS Recent files go back to
 </pre>
         <button id="button" onclick="toggle_visibility('idOfElement');">Bad Code</button>
         <div id="idOfElement" style="display: none; white-space: pre-line">
-            <pre class="prettyprint" title="Sample Code">
+            <pre class="prettyprint" title="1 - Simple Checks Bad Code">
 // Bad code!
 // Source is in a Tag: https://github.com/djhmateer/booktechdataimporter/blob/BeforeStage1/ImporterConsole/Program.cs
 using System;
@@ -204,9 +204,8 @@ namespace ImporterConsole
         </div>
 
     <button id="button" onclick="toggle_visibility('idOfElementRefactored');">Good Code</button>
-
         <div id="idOfElementRefactored" style="display: none; white-space: pre-line">
-            <pre class="prettyprint" title="Sample Code">
+            <pre class="prettyprint" title="1 - Simple Checks Refactored">
 // Refactored code after 1 - Simple Checks
 using System;
 using System.Configuration;
@@ -266,37 +265,22 @@ namespace ImporterConsole
 }
 </pre>
         </div>
-
-      
     </div>
 
     <div>
         <h1>2 - Rename and Auto Refactors</h1>
-        <h2>@*Methods*@</h2>
         <ul>
-            @*
-                    <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Methods - <b>single focus</b>  VerbNoun</label></li>
-                    <ul>
-                        <li>Trivial methods to refactor out eg</li>
-                        <li>WriteToLog</li>
-                        <li>GetPerson</li>
-                    </ul>
-
-                    <li>
-                    <li>isAdministrator - good clear variable name (favour the positive)</li>
-                    <li>_thing or thing - consistency important</li>
-                </ul>*@
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour short variable names for local scope</label></li>
+            <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour descriptive method names for local scope</label></li>
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour as little code as possible</label></li>
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> RS refactor suggestions to make more <b>readable</b></label></li>
             <ul>
                 <li>for to foreach</li>
                 <li>Move variable to inner scope - RS</li>
-                <li>Inline temp variables - RS (careful!)</li>
             </ul>
         </ul>
 
-        <pre class="prettyprint" title="Useful VS and R# commands">
+        <pre class="prettyprint" title="2 - Useful VS and R# commands">
 Alt Enter # RS Quick Actions
 Alt R M # RS Extract Method
 Ctrl . # VS Quick Actions
@@ -305,7 +289,7 @@ Ctrl R R  # Rename
 </pre>
     </div>
 
-    <pre class="prettyprint" title="Useful VS and R# commands">
+    <pre class="prettyprint" title="2 - Rename and Auto Refactors Sample Code">
 // 1 - Variables
 // Bad 
 string bt; // book title
@@ -380,13 +364,13 @@ private class BookNameGenerator
         <li><label><input type="checkbox" name="compile" value=""> Avoid flag argumnets eg Render(bool useColour)</label></li>
         <li><label><input type="checkbox" name="compile" value=""> Favour methods which are <b>Commands</b>, or <b>Queries</b></label></li>
     </ul>
-    <pre class="prettyprint" title="Useful VS and RS commands">
+    <pre class="prettyprint" title="3 - Long Methods Useful VS and RS commands">
 Ctrl Shift R  # RS Refactor this
 Ctrl R M  # RS Extract Method
 Shift Alt L # RS Go to file in Solution Explorer
 </pre>
 
-    <pre class="prettyprint" title="Useful VS and RS commands">
+    <pre class="prettyprint" title="3 - Long Methods Sample Code">
 // Functions should do 1 thing
 
 // Good - Separate levels of abstraction
