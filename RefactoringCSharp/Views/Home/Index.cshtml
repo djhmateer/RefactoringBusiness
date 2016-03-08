@@ -200,9 +200,8 @@ namespace ImporterConsole
 }
 </pre>
         </div>
-        @*<div id="idOfElement2" style="display: block; white-space: pre-line">
-        
-        </div>*@
+        <div id="idOfElement2" style="display: block; white-space: pre-line">        
+        </div>
 
     <button id="button" onclick="toggle_visibility('idOfElementRefactored');">Good Code</button>
 
@@ -310,46 +309,63 @@ Ctrl R R  # Rename
 // 1 - Variables
 // Bad 
 string bt; // book title
+
 // Good 
 string bookTitle;
+
 // Good variable name length increase with scope
 for (int i = 0; i < 5; i++) {}
+
 // Good - short method variable names
 var authors = GetAllAuthors();
+
 // Good - longer field variable names
 int totalNumberOfBooks = 0;
+
 // Bad - Hungarian
 var strBookTitle = "";
 var txtBookAuthor = "" // Windows forms thoughts.. would keep to be consistent
+
+
 // 2 - Methods
 // Bad - Unclear Method
 public void Process()
+
 // Good
 public void GetBookTitleFromListOfWords()
+
 // Good - Verb or Verb Phrase
 public void AddBook()
 public void DeleteAuthor()
 public void ParseBookTitle()
+
 // Good - Boolean (favour positive)
 public bool IsValid()
+
 // Length of method names should decrease with scope
 // Good - short public method name
 public void GetBooks()
 public void Save()
+
 // Good - longer private method name
 private string DisplaySummaryCountOfLoadedFiles()
 private string GenerateBookTitle()
+
+
 // 3 - Classes
 // Bad Class Names (nebulous)
 public class ObjectManager
 public class EntityProcessor
+
 // Good Class Names.  Noun or noun phrase
 public class Book
 pulbic class BookParser
 public class AddBookCommand
+
 // Length of class names should decrease with Scope
 // Good - short public class
 public class Book
+
 // Good - longer private class name
 private class BookNameGenerator
 </pre>
@@ -372,10 +388,12 @@ Shift Alt L # RS Go to file in Solution Explorer
 
     <pre class="prettyprint" title="Useful VS and RS commands">
 // Functions should do 1 thing
+
 // Good - Separate levels of abstraction
 public Author CreateAuthor()
 public string CreateAuthorFirstName()
 public bool HasAuthorFirstNameBeenUsedRecently()
+
 // Use Functions to make code more readable
 // Good - use small named functions
 public void CreateOutput() 
@@ -384,20 +402,26 @@ public void CreateOutput()
   CreateBody();
   CreateFooter();
 }
+
 // Bad - flag arguments
 public void Save(bool isFiction)
+
 // Good - no flag argument
 public void SaveFiction()
 public void SaveNonFiction()
+
 // Bad - out argument
 public void LoadWordsFile(out string[] words)
+
 // Good - no out
 public string[] LoadWordsFile()
+
 // Use CQS - Command Query Separation
+
 // Good - Command which modifies state and returns void
 public void Save(Book book)
+
 // Good - Query does not modify state
-public Book GetBook(int id)
 </pre>
 
     <div>
