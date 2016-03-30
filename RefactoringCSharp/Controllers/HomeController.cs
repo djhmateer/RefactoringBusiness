@@ -30,7 +30,7 @@ namespace RefactoringCSharp.Controllers
         static HomeController()
         {
             preWelcomeMessages = new List<string> { "Welcome to", "Hello from", "Rocking out with" };
-            int thing = (int)WebsiteStatus.Administrator;
+            //int thing = (int)WebsiteStatus.Administrator;
             index = random.Next(preWelcomeMessages.Count);
         }
 
@@ -56,7 +56,7 @@ namespace RefactoringCSharp.Controllers
         public void DoSomething(int age)
         {
             // Local variable
-            int a = 32;
+            //int a = 32;
         }
 
         public ActionResult About()
