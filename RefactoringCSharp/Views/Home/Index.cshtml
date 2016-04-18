@@ -267,8 +267,19 @@ namespace ImporterConsole
         </div>
     </div>
 
+
     <div>
-        <h1>2 - Rename and Auto Refactors</h1>
+        <h1>2 - Unit Test</h1>
+        <p>Red, Green, Refactor towards:</p>
+        <ul>
+            <li>Short methods which are more <b>easily testable</b> and <b>simpler</b></li>
+            <li>Performance - measure using timings.. Can algorithm be smarter eg less iterations in loops</li>
+        </ul>
+    </div>
+
+
+    <div>
+        <h1>3 - Rename and Auto Refactors</h1>
         <ul>
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour short variable names for local scope</label></li>
             <li><label><input type="checkbox" id="cbox" name="compile" value="Bike"> Favour descriptive method names for local scope</label></li>
@@ -356,7 +367,7 @@ private class BookNameGenerator
 </div>
 
 <div>
-    <h1>3 - Long Methods</h1>
+    <h1>4 - Long Methods</h1>
     <p>Commonly methods are long, and can be split apart to make <b>simpler to understand</b></p>
     <ul>
         <li><label><input type="checkbox" name="compile" value=""> 20 line method Rule of Thumb</label></li>
@@ -408,14 +419,7 @@ public void Save(Book book)
 // Good - Query does not modify state
 </pre>
 
-    <div>
-        <h1>4 - Unit Test</h1>
-        <p>Red, Green, Refactor towards:</p>
-        <ul>
-            <li>Short methods which are more <b>easily testable</b> and <b>simpler</b></li>
-            <li>Performance - measure using timings.. Can algorithm be smarter eg less iterations in loops</li>
-        </ul>
-    </div>
+   
 
     <div>
         <h1>5 - Error Handling</h1>
