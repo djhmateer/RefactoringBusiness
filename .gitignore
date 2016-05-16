@@ -181,4 +181,7 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
 DavesMusic/log-file.txt
+
+.vs/config/applicationhost.config
