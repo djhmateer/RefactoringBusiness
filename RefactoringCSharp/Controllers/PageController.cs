@@ -13,6 +13,7 @@ namespace Dave.RefactoringCSharp.Controllers
         {
             //ViewBag.ConnectionString = ConfigurationManager.ConnectionStrings["DavesJokes"].ToString();
 
+            System.Threading.Thread.Sleep(5000);
             // Read from a database
             //List<Joke> listOfJokes;
             //using (var context = new DavesJokes())
